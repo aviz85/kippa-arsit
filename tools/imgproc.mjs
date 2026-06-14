@@ -55,6 +55,25 @@ function chromaKey(data, w, h, ch, key, tol, feather) {
     else if (d < tol + feather) data[o + 3] = Math.round(255 * (d - tol) / feather);
   }
 }
+// remove green chroma spill on kept pixels + erode the 1px fringe ring
+function despillErode(data, w, h, ch, erodePx = 1) {
+  // despill: neutralize green-dominant pixels (chroma bleed) toward max(r,b)
+  for (let i = 0; i < w * h; i++) {
+    const o = i * ch; if (data[o + 3] === 0) continue;
+    const r = data[o], g = data[o + 1], b = data[o + 2];
+    if (g > r + 6 && g > b + 6) { const m = Math.max(r, b); data[o + 1] = Math.round((g + m) / 2 > m ? m : (g + m) / 2); }
+  }
+  // erode: opaque pixels touching transparency get cleared (kills the anti-aliased fringe)
+  for (let pass = 0; pass < erodePx; pass++) {
+    const clear = [];
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      const i = y * w + x; if (data[i * ch + 3] === 0) continue;
+      if ((x > 0 && data[(i - 1) * ch + 3] === 0) || (x < w - 1 && data[(i + 1) * ch + 3] === 0) ||
+          (y > 0 && data[(i - w) * ch + 3] === 0) || (y < h - 1 && data[(i + w) * ch + 3] === 0)) clear.push(i);
+    }
+    for (const i of clear) data[i * ch + 3] = 0;
+  }
+}
 function contentBBox(data, w, h, ch, aThresh = 16) {
   let x0 = w, y0 = h, x1 = -1, y1 = -1;
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
@@ -79,6 +98,7 @@ async function keyTrimResize(srcPath, targetH, keyArg, tol, feather, maxw) {
   const key = (!keyArg || keyArg === 'auto') ? detectKey(data, w, h, ch)
     : [parseInt(keyArg.slice(1, 3), 16), parseInt(keyArg.slice(3, 5), 16), parseInt(keyArg.slice(5, 7), 16)];
   chromaKey(data, w, h, ch, key, tol, feather);
+  despillErode(data, w, h, ch, 1);
   const bb = contentBBox(data, w, h, ch);
   if (!bb) die('no content after chroma-key (key=' + key.map(Math.round) + ')');
   // crop raw to bbox
