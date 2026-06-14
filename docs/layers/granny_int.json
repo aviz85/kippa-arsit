@@ -1,0 +1,43 @@
+{
+  "id": "granny_int",
+  "depth": { "horizon": 158, "nearScale": 1.15, "farScale": 0.82 },
+  "plate_additions": "Keep the exact composition of the dim sickly-green log-cabin interior: stone fireplace far left, navy wall-of-knives board center-top, taxidermy deer plaque top-right, pitch-black inner doorway center-right, red-framed bed with purple quilt and white pillow on the right, dark wood plank floor. FLATTEN/REMOVE the freestanding wooden rocking chair and the small candle table from the lower foreground (they become separate props) so the floor under them is clean open wood. Add richer surreal LucasArts background detail and gags: faint claw-mark scratches on the floorboards leading toward the doorway, a row of identical framed photos of young granny each holding a different sharp tool, cobwebs in the rafters, a coat-hook holding a wolf-skin cloak, drips of dark wax frozen mid-fall down the mantel, and a too-friendly stitched welcome sampler reading nonsense runes. Hand-painted early-90s LucasArts style, warm candlelight pooling on the floor, oppressive shadows in the corners.",
+  "props": [
+    {
+      "name": "rocking_chair",
+      "role": "foreground",
+      "x": 98,
+      "baseline": 156,
+      "scale": 0.30,
+      "anim": { "type": "sway", "amp": 4, "speed": 0.8, "fps": 0 },
+      "prompt": "Paint ONLY a worn dark-wood rocking chair as a standalone transparent prop in the game's hand-painted early-90s LucasArts style, on solid #00FF00 background. Tall slatted back, curved rockers, slightly menacing empty seat. Match the scene's warm low candlelight from the left and the dim sickly-green ambient, with the lit edges catching the fire glow and the right side in shadow. Front-three-quarter view, occupies roughly the lower third height of a 320x200 frame."
+    },
+    {
+      "name": "bed_footboard",
+      "role": "foreground",
+      "x": 201,
+      "baseline": 158,
+      "scale": 0.34,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY the left footboard post and corner of an old red-framed bed as a standalone transparent foreground prop in the game's hand-painted early-90s LucasArts style, on solid #00FF00 background. A thick turned dark-brown wooden post topped with a knob, with a sliver of the dark-red bed rail and edge of the purple quilt attached. Match the scene's cold dim light, faint candle warmth catching the front of the post, deep shadow behind. Tall narrow vertical element meeting the floor at its base."
+    },
+    {
+      "name": "candle_table",
+      "role": "midground",
+      "x": 150,
+      "baseline": 158,
+      "scale": 0.22,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY a small dark-wood side table with two red-tinted legs as a standalone transparent prop in the game's hand-painted early-90s LucasArts style, on solid #00FF00 background. A bare tabletop (the note and candle are painted/animated separately as overlays), slightly rickety. Match the scene's warm candlelight from above-left and the dim green ambient. Low piece meeting the floor at the bottom of its legs."
+    }
+  ],
+  "ambient": [
+    { "what": "fireplace ember flicker", "type": "frames", "where": "fireplace hearth approx x26-60, y134-150", "notes": "2-4 frames of the cold ember bed pulsing dull orange/gold, casting a faint warm glow that wavers on the floor in front of the fireplace. Low intensity — warmth that never reaches the room." },
+    { "what": "candle flame flicker", "type": "frames", "where": "candle on candle_table, flame at approx x136, y127-128", "notes": "tiny 2-3 frame gold/orange flame wobble; the only real light source. Drives a soft pulse on the note and tabletop." },
+    { "what": "window forest dusk fade", "type": "pulse", "where": "window approx x274-308, y86-128", "notes": "very slow steel-to-night alpha pulse as the forest outside darkens; occasional faint cold glint. Sells time passing / dread." },
+    { "what": "doorway cold glint", "type": "pulse", "where": "inner doorway approx x180-206, y110-140", "notes": "intermittent dim steel/ltGray glint deep in the pitch-black doorway — something metallic is in there, breathing. Slow irregular pulse." },
+    { "what": "knife-wall glints", "type": "pulse", "where": "wall of knives approx x90-170, y34-60", "notes": "staggered subtle white highlight glints traveling across the mounted blades, as if catching the candlelight one by one." }
+  ],
+  "bizarre": "The rocking chair sways on its own with no one in it (and no wind), perfectly timed to the candle flicker. The taxidermy deer's eyes very slowly track the player across the room. One framed photo on the mantel shows young granny mid-blink so she appears to wink whenever the candle flares. The empty hook on the knife wall occasionally has a faint blade-shaped shimmer, as if a knife is about to materialize.",
+  "walk_notes": "Keep the existing walkbox {x:14,y:160,w:292,h:32} essentially unchanged — the walkable floor is the lower strip below y~160. Foreground occluders (rocking_chair baseline 156, bed_footboard baseline 158) sit just above/at the floor line so the player draws BEHIND them when her feet-y is above (smaller than) the prop baseline, i.e. when she stands deeper into the room near the table/bed, and IN FRONT when she walks forward to the very front edge. The candle_table (baseline 158) stays a midground depth-sorted piece so the note hotspot near {x:150,y:172} is approached from the front. No reduction of walkable area needed; the player should still be able to reach the doorway threshold (x178-208) and the bed (granny near x210)."
+}

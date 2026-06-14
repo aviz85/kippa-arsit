@@ -1,0 +1,42 @@
+{
+  "id": "finale",
+  "depth": { "horizon": 162, "nearScale": 1.15, "farScale": 0.7 },
+  "plate_additions": "Keep the exact composition of the midnight cottage bedroom: cold moonlit window with light shaft upper-left, crooked timber ceiling beam, dark open doorway upper-right, warm wooden plank floor in the lower third. REMOVE the big bed entirely and FLATTEN/remove the bed footboard posts (they become separate foreground props) so the floor stays open and walkable across the center. Paint richer surreal LucasArts detail on the now-empty walls and floor: a sinister mounted-knife rack ordered by size with one knife missing from its slot, faded floral granny wallpaper that on close look is tiny wolves, a crooked framed cross-stitch reading 'BABUSHKA EATS WELL', a melted candle stub on a sconce, claw-scratch marks gouged into the floorboards leading toward where the bed sat, dust motes in the moonbeam, a single forgotten slipper. Cold blue moonlight from the left, warm brown floor, deep night-blue shadows on the right wall.",
+  "props": [
+    {
+      "name": "bed_with_granny",
+      "role": "midground",
+      "x": 162,
+      "baseline": 158,
+      "scale": 0.42,
+      "anim": { "type": "bob", "amp": 1, "speed": 0.6, "fps": 0 },
+      "prompt": "A heavy carved-wood cottage bed seen slightly from the foot, dark walnut frame, blood-dark-red blanket with a creepy lump under it and a too-white pillow, two squat turned bedposts at the corners, painted in early-90s LucasArts gouache style on solid #00FF00 transparent background, lit by cold blue moonlight from the left and a faint warm bounce from the floor, exaggerated cartoon proportions, subtle menace; the lump should read as 'something is in this bed'"
+    },
+    {
+      "name": "footboard_post",
+      "role": "foreground",
+      "x": 112,
+      "baseline": 176,
+      "scale": 0.5,
+      "anim": { "type": "none", "amp": 0, "speed": 1, "fps": 0 },
+      "prompt": "A single tall carved wooden bed footboard post and the low footboard rail of a cottage bed, dark walnut with a turned ball finial and chunky cartoon proportions, the rail running to the right, foreground occluder so it is large and crisp, painted in early-90s LucasArts gouache style on solid #00FF00 transparent background, cold blue moonlight rim on the left edge, warm brown reflected light at the floor contact, slightly ominous"
+    },
+    {
+      "name": "doorframe_edge",
+      "role": "foreground",
+      "x": 300,
+      "baseline": 178,
+      "scale": 0.92,
+      "anim": { "type": "none", "amp": 0, "speed": 1, "fps": 0 },
+      "prompt": "The near vertical edge and architrave of a tall dark cottage doorway, weathered wood molding running full height on the right side of the frame, foreground occluder, painted in early-90s LucasArts gouache style on solid #00FF00 transparent background, deep night-blue shadow side facing the room with a thin cold cyan rim of moonlight, a few claw scratches in the wood"
+    }
+  ],
+  "ambient": [
+    { "what": "moonbeam shaft shimmer with drifting dust motes across the floor", "type": "drift", "where": "x26-150, y86-162 (the cold light shaft from the window to the floor)", "notes": "Slow upward/diagonal drift of faint pale motes; the shaft itself can pulse alpha very gently to feel alive and cold." },
+    { "what": "candle / sconce flame flicker on the wall", "type": "frames", "where": "wall sconce ~x300,y58 and ~x150,y58 region", "notes": "2-3 frame tiny warm flame loop, the only warm light source; casts a faint warm glimmer that fights the moon's cold." },
+    { "what": "moonlight glint on the mounted wall knives", "type": "pulse", "where": "wallknife rack ~x122-162, y40-72", "notes": "Slow alpha pulse on the blade edges so the knives catch the moon and twinkle — dread cue." },
+    { "what": "wolf silhouette breathing in the doorway (pre-rescue)", "type": "bob", "where": "doorway ~x278, y58-134", "notes": "Gentle vertical bob on the waiting wolf shadow so it reads as a living watcher; replaced when wolfIn flips true." }
+  ],
+  "bizarre": "The size-ordered knife rack has one empty slot and a faint chalk outline where the missing knife should be. The granny wallpaper's floral pattern is, on inspection, hundreds of tiny grinning wolves. A cross-stitch sampler reads 'BABUSHKA EATS WELL' with a smiley made of teeth. Claw-scratch gouges in the floorboards lead from the door straight to the foot of the bed, and a single child-sized slipper sits abandoned in the moonbeam.",
+  "walk_notes": "Current walkbox is one strip {x:14,y:164,w:292,h:30} (y164-194). Keep this floor strip. The bed becomes a midground prop with baseline ~158 (just above the floor) so the player walks IN FRONT of the bed body when near the camera but the bed still blocks the upper floor. The footboard_post (baseline 176) and doorframe_edge (baseline 178) sit in the lower third, so the player passes BEHIND them when standing further back (smaller feet-y) and in front when close — classic occlusion. Slightly extend the walkable strip left to x12 so the player can tuck behind the footboard post near the window without clipping; the near:{x} on the granny hotspot (150,178) and window (60,178) stay valid."
+}

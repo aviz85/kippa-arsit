@@ -1,0 +1,62 @@
+{
+  "id": "granny_ext",
+  "depth": { "horizon": 150, "nearScale": 1.15, "farScale": 0.7 },
+  "plate_additions": "Keep the exact composition: crooked creepy-cute thatched cottage centered, dark door, dark window left of door, leaning chimney with thin smoke, stone path to the door, mossy sickly-green forest-edge ground, overcast sky, dense dark tree line behind. REMOVE/flatten the big foreground tree trunk on the far LEFT edge and the heavy overhanging foliage canopy along the TOP — those become separate foreground props; leave clean sky/treeline behind them and keep the lower-left floor open where the trunk's base sat. Push the side framing trees back into the midground tree wall so the play area reads clearly. Add richer surreal LucasArts background detail: gnarled twisted bark faces in the distant trees, a few crooked picket-fence stubs, scattered toadstools with too-symmetrical spots, faint glowing eyes peeking from the treeline gaps, a cuckoo-clock bird frozen mid-pop out of a knot-hole, drifting wisp of fog low across the moss. Keep the painted CGA-ish dithered palette and overcast light from upper-left.",
+  "props": [
+    {
+      "name": "left_tree_trunk",
+      "role": "foreground",
+      "x": 18,
+      "baseline": 196,
+      "scale": 1.0,
+      "anim": { "type": "sway", "amp": 1.5, "speed": 0.4, "fps": 0 },
+      "prompt": "Paint ONLY the big gnarled foreground tree on the far LEFT edge of the scene as a standalone transparent prop on solid #00FF00: a thick twisted dark-bark trunk rising the full height at the left margin, with a heavy overhanging leafy canopy arcing across the top-left, dappled overcast light from the upper-left, deep shadow side on the right. Slightly surreal LucasArts cartoon proportions — a faint suggestion of a knotty bark face. Same painted dithered palette and lighting as the granny cottage scene. Trunk base meets the mossy ground at the lower-left; foliage is rich and dark green with autumnal edges."
+    },
+    {
+      "name": "garden_gnome",
+      "role": "foreground",
+      "x": 213,
+      "baseline": 159,
+      "scale": 0.22,
+      "anim": { "type": "bob", "amp": 1, "speed": 0.6, "fps": 0 },
+      "prompt": "Paint ONLY a creepy-cute garden gnome as a standalone transparent prop on solid #00FF00: blue smock body, rosy round cheeks, fluffy white beard, tall pointed red hat, leaning slightly forward with a smile that is a touch too wide and a stare a little too direct. Small ceramic statue scale, glossy painted ceramic finish catching the overcast upper-left light, soft shadow at its base. Same painted dithered LucasArts palette and light as the granny cottage scene. It stands on the grass at the front-right of the stone path."
+    },
+    {
+      "name": "flower_bed_planter",
+      "role": "foreground",
+      "x": 63,
+      "baseline": 164,
+      "scale": 0.12,
+      "anim": { "type": "sway", "amp": 2, "speed": 0.8, "fps": 0 },
+      "prompt": "Paint ONLY a low wooden raised flower-bed planter as a standalone transparent prop on solid #00FF00: a long shallow dark-wood box of dark soil bursting with too-perfect cartoon flowers (red, yellow, pink, white, purple, orange) on green stems, with a tiny weathered grave-like wooden sign stuck in the right end (blank, no name). Front-facing so the player can walk behind it. Overcast upper-left light, soft cast shadow on the moss. Same painted dithered LucasArts palette and lighting as the granny cottage scene."
+    }
+  ],
+  "ambient": [
+    {
+      "what": "chimney smoke curl",
+      "type": "drift",
+      "where": "chimney top ~x:132,y:36",
+      "notes": "thin wisp drifting up-right from the leaning chimney, looping with wraparound and fading alpha at the top"
+    },
+    {
+      "what": "cold glints inside dark window (knife/taxidermy eye glints)",
+      "type": "pulse",
+      "where": "window region x:108-138,y:98-130",
+      "notes": "slow alpha shimmer on the metallic glints and the two yellow taxidermy-eye dots — barely-there blink, heightens dread"
+    },
+    {
+      "what": "treeline glowing eyes",
+      "type": "pulse",
+      "where": "back tree line y:80-96 across full width",
+      "notes": "a couple of faint paired dots blink slowly in the gaps between distant trees"
+    },
+    {
+      "what": "low ground fog drift",
+      "type": "drift",
+      "where": "lower moss band y:160-185",
+      "notes": "slow horizontal wisp of pale fog crossing the floor, wraparound; very low alpha so it doesn't obscure the walk area"
+    }
+  ],
+  "bizarre": "Distant trees have subtle gnarled bark faces that seem to track the player. A cuckoo-clock bird is frozen mid-pop out of a tree knot-hole. The gnome's eyes very occasionally are looking a few degrees more toward you than last time. Toadstools in the grass have unnervingly symmetrical, almost watching spot patterns; the blank grave-sign in the flower bed reads 'כאן גדל אהוב/ה' with no name.",
+  "walk_notes": "Keep the current walkbox (x:10..310, y:162..196) essentially as-is; it already sits below all occluder baselines. The left_tree_trunk (baseline 196) occupies the far-left margin — trim the walkable left edge slightly inward (start x ~22 instead of 10) so the player visibly passes BEHIND the trunk when standing further back, and never overlaps its painted base. Gnome (baseline 159) and flower-bed planter (baseline 164) sit at/just above the floor band, so the player walks behind them when her feet are higher (further back) and in front when she steps down toward the camera — standard baseline z-sort. No change to the door-threshold 'in' exit strip (y:163..176) or the 'back' exit on the left."
+}

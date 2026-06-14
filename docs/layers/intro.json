@@ -1,0 +1,46 @@
+{
+  "id": "intro",
+  "depth": { "horizon": 120, "nearScale": 1.15, "farScale": 0.7 },
+  "plate_additions": "Repaint the EXACT same wide establishing shot — warm dusk sky with a big full moon top-right, dark pine tree-line, the apartment 'hood' blocks center-right, and the dirt path winding from the bottom-center foreground up toward the buildings. SAME camera and composition. FLATTEN/REMOVE the big gnarled foreground oak at the far-left (trunk + crowning canopy) AND the mushroom cluster at its base — they become separate props; leave clean, paintable forest floor and grass where they stood (continue the dirt path edge, undergrowth and dappled ground underneath so the floor reads complete). Push much more depth and surreal LucasArts richness into the BACKGROUND plate: a denser, mistier multi-row pine silhouette receding into haze on the left, faint moon-glow rim-light on the building rooftops and tree crowns, a few more warm lit/dark windows 'waking up' across the blocks, a thin chimney wisp, and far-back baked-in gags — a crooked municipal sign at the path mouth with sun-bleached glyph-scribbles and a misdirected arrow, a single fat owl silhouette on a high branch, a 'NO WiFi BEYOND THIS POINT' notice half-swallowed by ivy where the asphalt gives way to forest, and a lone glowing vending machine at the tree-line. Keep the storybook vignette dark border, the hand-painted outline weight, warm dawn/dusk palette, and integer-pixel feel of the current bg.",
+  "props": [
+    {
+      "name": "fg_tree_left",
+      "role": "foreground",
+      "x": 34,
+      "baseline": 188,
+      "scale": 1.0,
+      "anim": { "type": "sway", "amp": 2.5, "speed": 0.35, "fps": 0 },
+      "prompt": "Paint ONLY the large gnarled foreground oak at the far-left of the intro establishing shot, as a standalone transparent prop on solid #00FF00. A thick, knotted brown trunk rising from the bottom-left edge of the frame with a broad layered dark-green canopy crowning and overhanging the top-left corner, visible bark grain, a couple of low knots and an exposed root flare at the base, exaggerated cartoon LucasArts SCUMM proportions. Match the scene's warm dusk side-light and cool moon rim-light: a faint silver edge on the upper-right of the canopy (moon side) and warm shadow on the lower-left. The trunk must read as a solid vertical occluder anything can pass behind, anchored to the lower-left third. Same hand-painted palette and outline weight as the painted background.",
+      "_note": "The dominant foreground occluder in the painted bg. Trunk meets the floor near the bottom-left edge; baseline 188 keeps it as a true near-camera plane."
+    },
+    {
+      "name": "moon_disc",
+      "role": "midground",
+      "x": 252,
+      "baseline": 60,
+      "scale": 0.18,
+      "anim": { "type": "pulse", "amp": 0, "speed": 0.15, "fps": 0 },
+      "prompt": "Paint ONLY the big full moon from the top-right of the intro shot, as a standalone transparent prop on solid #00FF00. A pale cream-yellow disc with faint hand-painted crater mottling and a soft luminous halo bleeding into transparency at its edge, exaggerated storybook LucasArts scale, slightly oversized and dreamlike. No surrounding sky — just the moon and its glow on transparent. Same painted palette and warm-cool light as the background.",
+      "_note": "Floats high above the floor (baseline 60) so it always renders behind/over the far plate and the player; gives a gentle independent glow-pulse layer."
+    },
+    {
+      "name": "mushroom_cluster",
+      "role": "foreground",
+      "x": 22,
+      "baseline": 178,
+      "scale": 0.14,
+      "anim": { "type": "bob", "amp": 1, "speed": 0.5, "fps": 0 },
+      "prompt": "Paint ONLY the little cluster of toadstool mushrooms from the base of the left tree in the intro shot, as a standalone transparent prop on solid #00FF00. Three or four chunky storybook mushrooms — red-and-cream spotted caps and one tall pale stalk — nestled in a tuft of dark-green grass, exaggerated cartoon LucasArts proportions, warm dusk light with a faint moon-blue rim on the cap tops. Low and small, sitting in the lower-left foreground. Same hand-painted palette and outline weight as the painted background.",
+      "_note": "A small foreground set-dressing occluder at the tree's foot; gentle bob sells living forest. Baseline below the tree's, so it sorts as the very nearest plane."
+    }
+  ],
+  "ambient": [
+    { "what": "moon glow pulse", "type": "pulse", "where": "moon_disc (x:252,y:60)", "notes": "Very slow, subtle alpha/halo breathing on the full moon and a faint silver wash on the rooftops/tree crowns below it; sells the dusk-into-night storybook mood without distracting from the narration." },
+    { "what": "swaying foreground tree canopy", "type": "sway", "where": "fg_tree_left canopy top (top-left corner)", "notes": "Gentle ±2-3deg rotation pivoting from the trunk base; the crowning leaves breathe slightly so the static establishing shot feels alive during the long voiceover." },
+    { "what": "drifting dusk clouds", "type": "drift", "where": "x:60,y:34 to x:170,y:22 (cloud band across the warm sky)", "notes": "Slow horizontal drift of the soft warm clouds with wraparound, crossing in front of the moon glow occasionally for a quiet cinematic beat." },
+    { "what": "waking-window blink", "type": "pulse", "where": "x:165-245,y:60-95 (apartment-block windows, the 'hood')", "notes": "Occasional slow alpha pulse on 2-3 gold windows so the neighbourhood reads as 'waking up' under the title narration." },
+    { "what": "drifting forest haze", "type": "drift", "where": "x:0,y:100 to x:120,y:115 (left pine tree-line band)", "notes": "A faint mist wisp looping behind the pines to deepen the left background and separate it from the foreground oak plane." }
+  ],
+  "bizarre": "1) The crooked municipal sign at the path mouth reads, in sun-bleached glyph-scribble, 'YOU ARE NOW LEAVING THE HOOD — NO WiFi BEYOND THIS POINT', its arrow (← per RTL) pointing straight into the dark forest. 2) A single fat owl on a high branch wearing tiny round glasses, watching the path like a disapproving narrator. 3) One apartment window glows with the unmistakable blue flicker of a TV at this ungodly hour, while the unit beside it has a too-long tangle of cables sagging out the window. 4) A lone vending machine glows at the tree-line where civilization ends, one button lit, dispensing nothing — the last outpost before the woods.",
+  "walk_notes": "This is a storybook intro CUTSCENE — the existing walkbox is intentionally tiny ({x:158,y:197,w:4,h:2}) and there is NO real walking, no hotspots, no exits; the scene auto-advances narration then GAME.goto('room_red'). So the layer plan is for DEPTH/PARALLAX and ambient life, not for a walkable floor. Keep the walkbox as-is. The foreground props are still authored with proper baselines (fg_tree_left 188, mushroom_cluster 178) so that IF the engine ever places the red figure on the path here, she correctly draws BEHIND the left tree and mushrooms; the moon_disc (baseline 60) always renders far behind/above. No change to the walkable polygon is required."
+}

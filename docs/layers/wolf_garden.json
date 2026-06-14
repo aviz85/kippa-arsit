@@ -1,0 +1,52 @@
+{
+  "id": "wolf_garden",
+  "depth": { "horizon": 158, "nearScale": 1.12, "farScale": 0.78 },
+  "plate_additions": "Keep the exact garden composition (sky, distant tree-line clearing, picket fence, tilled soil with carrot rows + tomato bushes, front grass walking strip, sun and clouds) but FLATTEN/REMOVE the big left foreground tree, the scarecrow, the wolf's hut and the watering can — they become separate props, so paint the soil/grass/sky cleanly where they were. Add richer surreal LucasArts background detail and gags: a hand-painted 'כניסה לצמחונים בלבד' sign nailed to the fence, a wonky garden-gnome with a tiny knife confiscated and zip-tied, a butterfly with a wolf's face, a single suspiciously oversized carrot pushing up the soil like a periscope, distant trees whose canopies are subtly shaped like sheep, a tiny 'BEWARE OF THE FRIENDLY WOLF' notice, faint chalk hopscotch on the grass strip. Keep the lower third (y>=158) open and walkable.",
+  "props": [
+    {
+      "name": "left_tree",
+      "role": "foreground",
+      "x": 16,
+      "baseline": 196,
+      "scale": 0.98,
+      "anim": { "type": "sway", "amp": 1.5, "speed": 0.4, "fps": 0 },
+      "prompt": "A single big gnarled deciduous tree as a standalone transparent prop in the game's hand-painted cartoon LucasArts style — thick textured brown trunk rising from bottom-left and a broad leafy green canopy arching across the upper-left, warm late-afternoon sun rim-light from the upper-right, soft cast shadow at its base. Exaggerated friendly cartoon proportions. Painted on solid #00FF00 chroma background, tight to the silhouette, nothing else in frame."
+    },
+    {
+      "name": "scarecrow",
+      "role": "foreground",
+      "x": 130,
+      "baseline": 150,
+      "scale": 0.42,
+      "anim": { "type": "sway", "amp": 2, "speed": 0.6, "fps": 0 },
+      "prompt": "A friendly garden scarecrow on a wooden cross-pole as a standalone transparent prop in the game's hand-painted cartoon LucasArts style: burlap-sack head with stitched smile and button eyes, straw sun-hat, wearing a cozy dark-blue knitted sweater (a sweet detail — someone gave the scarecrow warmth), straw poking from the cuffs, arms out on the cross-bar, pole going down to a small soil base. Warm afternoon side-light, soft shadow at the base. Painted on solid #00FF00 chroma background, tight silhouette, nothing else."
+    },
+    {
+      "name": "watering_can",
+      "role": "foreground",
+      "x": 64,
+      "baseline": 162,
+      "scale": 0.13,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "A small galvanised metal watering can with a long spout and rose, tilted as if just set down on the grass, standalone transparent prop in the game's hand-painted cartoon LucasArts style. Slightly worn grey metal with subtle highlights, warm afternoon light from the right, soft contact shadow under it. Painted on solid #00FF00 chroma background, tight silhouette, nothing else."
+    },
+    {
+      "name": "wolf_hut",
+      "role": "midground",
+      "x": 282,
+      "baseline": 110,
+      "scale": 0.46,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "A small cozy wooden cabin (the wolf's hut) as a standalone transparent prop in the game's hand-painted cartoon LucasArts style: brown plank walls, dark-red pitched roof, a little brick chimney with a faint curl of smoke, a glowing warm window, a red door with a brass knob, a tiny mezuzah-style plaque reading 'כניסה לצמחונים בלבד' beside the door. Warm afternoon light, soft cast shadow to the left. Painted on solid #00FF00 chroma background, tight silhouette, nothing else."
+    }
+  ],
+  "ambient": [
+    { "what": "drifting clouds", "type": "drift", "where": "sky band y:10-40, x across full width", "notes": "two soft white cloud puffs drifting slowly left-to-right with wraparound; very slow speed." },
+    { "what": "sun glow pulse", "type": "pulse", "where": "x:288,y:22 (sun)", "notes": "gentle warm alpha/scale shimmer on the sun disc." },
+    { "what": "chimney smoke", "type": "frames", "where": "wolf_hut chimney (~x:296,y:64)", "notes": "2-3 frame thin smoke curl looping up and dissipating, fps ~4." },
+    { "what": "swaying sunflowers", "type": "sway", "where": "back fence row y:95-105, x:24-174", "notes": "sunflower heads sway in light breeze, slightly out of phase with each other and with the foliage props." },
+    { "what": "window light flicker", "type": "pulse", "where": "wolf_hut window (~x:268,y:84)", "notes": "soft warm flicker in the lit window, subtle." }
+  ],
+  "bizarre": "The scarecrow wears a hand-knitted sweater because the wolf felt it looked cold. A confiscated garden gnome sits zip-tied with a tiny knife taken away ('we don't judge'). One oversized carrot rises from the soil like a submarine periscope with a googly eye on top. A butterfly with a tiny wolf face flutters near the sunflowers, and the distant tree canopies are faintly sheep-shaped.",
+  "walk_notes": "Walkbox stays the front grass strip [{x:14,y:160,w:292,h:34}]. With horizon at 158 the player passes BEHIND the left tree (baseline 196 is below player feet only at far-left near edge, so it occludes when she walks deep-left), behind the scarecrow pole and behind the watering can when standing further back than their baselines; she passes in FRONT of the wolf hut and sunflowers (midground, baselines high up at y<=110). The wolf NPC at feet y=156 sits just above the walk strip so depth-sort interleaves him naturally with the player. No change to the navigable area itself."
+}

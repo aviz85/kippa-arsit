@@ -162,11 +162,14 @@
     const meta = GAME._spriteMeta[id];
     if(meta){
       const d = dir==='up'?'up':(dir==='down'?'down':'side');
-      const img = GAME.img('spr_'+id+'_'+d) || GAME.img('spr_'+id+'_side') || GAME.img('spr_'+id+'_down');
+      let img=null;
+      const nf = meta.frames && meta.frames[d];     // walk-cycle frame count for this direction
+      if(nf && nf>1){ const fi=((Math.floor(frame)%nf)+nf)%nf; img=GAME.img('spr_'+id+'_'+d+'_'+fi) || GAME.img('spr_'+id+'_'+d+'_0'); }
+      img = img || GAME.img('spr_'+id+'_'+d) || GAME.img('spr_'+id+'_side') || GAME.img('spr_'+id+'_down');
       if(img){
         const dh = (meta.h||34)*sc, dw = dh*(img.naturalWidth/img.naturalHeight);
         GAME.ellipse(g,x,y,Math.max(2,dw*0.42),Math.max(1,2.4*sc),'rgba(0,0,0,.28)');
-        const bob = (frame===1||frame===3)? -0.6*sc : 0;
+        const bob = (!nf || nf<=1) && (frame===1||frame===3)? -0.6*sc : 0;   // procedural bob only if no real frames
         g.save();
         if(dir==='left'){ g.translate(x,0); g.scale(-1,1); g.translate(-x,0); }
         g.drawImage(img, x-dw/2, y-dh+bob, dw, dh);
@@ -200,12 +203,14 @@
     buildVerbs(); renderTop(); renderInventory();
   };
 
+  // SCUMM-style text verbs (imperative Hebrew). 'give' maps onto the use-with-item handler.
   const VERBS = [
-    {id:'walk', label:'ללכת',  glyph:'👟'},
-    {id:'look', label:'להביט', glyph:'👁'},
-    {id:'talk', label:'לדבר',  glyph:'💬'},
-    {id:'take', label:'לקחת',  glyph:'✋'},
-    {id:'use',  label:'להשתמש',glyph:'🔧'},
+    {id:'look', label:'הַבֵּט'},
+    {id:'talk', label:'דַּבֵּר'},
+    {id:'take', label:'קַח'},
+    {id:'use',  label:'הַפְעֵל'},
+    {id:'give', label:'תֵּן'},
+    {id:'walk', label:'לֵךְ'},
   ];
   GAME.verb = 'walk';
   function buildVerbs(){
@@ -213,7 +218,7 @@
     VERBS.forEach(v=>{
       const b=document.createElement('button');
       b.className='verb'+(v.id===GAME.verb?' sel':''); b.dataset.v=v.id;
-      b.innerHTML=`<span class="g">${v.glyph}</span><span class="l">${v.label}</span>`;
+      b.textContent=v.label;
       b.onclick=()=>{ GAME.verb=v.id; GAME.selItem=null; refreshVerbs(); GAME.sfx('click'); };
       elVerbs.appendChild(b);
     });
@@ -233,9 +238,9 @@
       const def=items[id]; const slot=document.createElement('button');
       slot.className='slot'+(GAME.selItem===id?' sel':'');
       slot.title=def?def.name:id;
-      const c=document.createElement('canvas'); c.width=32;c.height=32;c.className='ico';
-      const g=c.getContext('2d'); g.imageSmoothingEnabled=true;
-      if(def&&def.draw){ try{def.draw(g,0,0,2);}catch(e){} } else { g.fillStyle=C.purple; g.fillRect(4,4,24,24); }
+      const c=document.createElement('canvas'); c.width=112;c.height=112;c.className='ico';
+      const g=c.getContext('2d'); g.imageSmoothingEnabled=true; g.imageSmoothingQuality='high';
+      if(def&&def.draw){ try{def.draw(g,0,0,7);}catch(e){} } else { g.fillStyle=C.purple; g.fillRect(8,8,96,96); }
       slot.appendChild(c);
       slot.onclick=()=>{
         if(GAME.selItem===id){ GAME.selItem=null; }
@@ -381,6 +386,7 @@
       case 'take': {
         const n=nearPoint(h); GAME.walkTo(n.x,n.y, ()=> h.onTake? fire(h.onTake) : (GAME.sfx('error'),GAME.say('זה לא נלקח.')));
         break; }
+      case 'give':
       case 'use': {
         const it=GAME.selItem; const n=nearPoint(h);
         GAME.walkTo(n.x,n.y, ()=> { if(h.onUse) fire(h.onUse, it); else { GAME.sfx('error'); GAME.say('זה לא עובד ככה.'); } GAME.selItem=null; refreshVerbs(); });
@@ -415,10 +421,16 @@
   GAME._setCursorEl=(el)=>{elCursor=el;};
   function updateCursorLabel(){
     if(!elCursor) return;
-    const verbL = (VERBS.find(v=>v.id===GAME.verb)||{}).label||'';
+    const v=GAME.verb, o=hoverName;
     const it = GAME.selItem? (items[GAME.selItem]?.name||'') : '';
-    let s = it? `${it} על` : verbL;
-    elCursor.textContent = hoverName? `${s} ${hoverName}` : (GAME.verb==='walk'? 'ללכת' : s);
+    let s='';
+    if(v==='walk')      s = o? ('לֵךְ אל '+o) : 'לֵךְ';
+    else if(v==='look') s = o? ('הַבֵּט על '+o) : 'הַבֵּט';
+    else if(v==='talk') s = o? ('דַּבֵּר עם '+o) : 'דַּבֵּר';
+    else if(v==='take') s = o? ('קַח את '+o) : 'קַח';
+    else if(v==='give') s = it ? ('תֵּן '+it+(o?(' ל'+o):'')) : ('תֵּן'+(o?(' את '+o):''));
+    else if(v==='use')  s = it ? ('הַפְעֵל '+it+(o?(' עם '+o):'')) : ('הַפְעֵל'+(o?(' את '+o):''));
+    elCursor.textContent = s;
   }
 
   function onKey(ev){
@@ -459,7 +471,32 @@
   /* ============================ RENDER LOOP =============================== */
   function drawPlayer(){
     const sc=sceneScaleAt(player.y);
-    GAME.drawSprite(ctx,'red',player.x,player.y, Math.floor(player.frame)%4, player.dir, sc);
+    GAME.drawSprite(ctx,'red',player.x,player.y, Math.floor(player.frame)%8, player.dir, sc);
+  }
+
+  /* ---- props / layers / animation (v3 z-depth) --------------------------- */
+  function animXform(g, anim, baseX, baseY){
+    if(!anim || anim.type==='none' || !anim.type) return 1;
+    const t=(GAME.t||0)/1000;
+    if(anim.type==='sway'){ const ang=((anim.amp||3)*Math.PI/180)*Math.sin(t*(anim.speed||1)+(anim.phase||0));
+      g.translate(baseX,baseY); g.rotate(ang); g.translate(-baseX,-baseY); return 1; }
+    if(anim.type==='bob'){ g.translate(0,(anim.amp||2)*Math.sin(t*(anim.speed||1))); return 1; }
+    if(anim.type==='drift'){ const span=(anim.amp||40); const dx=((t*(anim.speed||8))%(span*2))-span; g.translate(dx,0); return 1; }
+    if(anim.type==='pulse'){ return (1-(anim.amp||0.25))+(anim.amp||0.25)*(0.5+0.5*Math.sin(t*(anim.speed||1.5))); }
+    return 1;
+  }
+  function drawProp(p){
+    let img=null;
+    if(p.frames && p.frames.length){ const n=p.frames.length; const fi=Math.floor((GAME.t||0)/1000*(p.fps||6))%n; img=GAME.img(p.frames[fi]); }
+    img = img || GAME.img(p.img || ('prop_'+cur.id+'_'+p.name));
+    if(!img) return;
+    const dh = (p.scale!=null ? p.scale*H : img.naturalHeight*0.25);
+    const dw = dh*(img.naturalWidth/img.naturalHeight);
+    ctx.save();
+    const a=animXform(ctx, p.anim, p.x, p.baseline);
+    if(a!==1) ctx.globalAlpha = Math.max(0,Math.min(1,a));
+    ctx.drawImage(img, p.x-dw/2, p.baseline-dh, dw, dh);
+    ctx.restore();
   }
   function render(){
     ctx.setTransform(RS,0,0,RS,0,0);        // hi-res; all drawing uses logical 320x200 coords
@@ -468,10 +505,18 @@
       const bg = GAME.img('bg_'+cur.id);
       if(bg) ctx.drawImage(bg, 0,0, W, H);
       else { try{ cur.drawBackground(ctx); }catch(e){ console.error('bg',e); } }
-      drawPlayer();
-      // With a painted bg, skip procedural hotspot overlays EXCEPT those flagged keepDraw
-      // (NPC sprites & world items). Without a painted bg, draw everything (procedural fallback).
-      for(const h of (cur.hotspots||[])){ if(h.draw && (!bg || h.keepDraw)){ try{h.draw.call(h,ctx);}catch(e){} } }
+
+      const props = cur.props||[];
+      // 'back' props sit between the plate and everything else (always behind the player)
+      for(const p of props){ if(p.layer==='back'){ try{drawProp(p);}catch(e){} } }
+      // depth-sorted pass: player + front props + any keepDraw hotspot that declares a baseline
+      const list=[{b:player.y, fn:drawPlayer}];
+      for(const p of props){ if(p.layer!=='back'){ list.push({b:p.baseline||0, fn:()=>drawProp(p)}); } }
+      for(const h of (cur.hotspots||[])){ if(h.draw && (!bg||h.keepDraw) && h.baseline!=null){ const hh=h; list.push({b:hh.baseline, fn:()=>{try{hh.draw.call(hh,ctx);}catch(e){}}}); } }
+      list.sort((a,b)=>a.b-b.b);
+      for(const d of list) d.fn();
+      // keepDraw overlays WITHOUT a baseline render in front (items, NPCs not depth-managed)
+      for(const h of (cur.hotspots||[])){ if(h.draw && (!bg||h.keepDraw) && h.baseline==null){ try{h.draw.call(h,ctx);}catch(e){} } }
       for(const ex of (cur.exits||[])){ if(ex.arrow) drawArrow(ex); }
     }
     if(transitioning) drawFade();
@@ -489,7 +534,8 @@
   function drawFade(){
     ctx.globalAlpha=fadeAlpha; ctx.fillStyle=C.black; ctx.fillRect(0,0,W,H); ctx.globalAlpha=1;
   }
-  function step(){
+  function step(ts){
+    GAME.t = ts || ((GAME.t||0)+16);
     if(!frozen){
       updatePlayer();
       if(transitioning){

@@ -1,0 +1,42 @@
+{
+  "id": "river",
+  "depth": { "horizon": 156, "nearScale": 1.15, "farScale": 0.7 },
+  "plate_additions": "Keep the exact composition: high forest treeline and far bank at top, the horizontal river band in the middle with the two intact wooden bridge spans + broken gap, sandy near-bank floor at the bottom. FLATTEN and REMOVE the big foreground occluders so they can become separate props: erase the tall reed/cattail clump on the lower-right bank, the large boulder cluster at the lower-left bank, and the chunky grass-and-rock tuft at the bottom edge — leave clean open sandy floor where they stood so the character can walk there and be occluded by the props. Push the reeds, single small stones and bridge posts that remain into the plate as flat painted detail. Add richer surreal LucasArts background gags painted into the far bank and water: a tiny rowboat with no oars drifting nowhere, a smug fish poking its head out mid-river, a 'NO DIVING' sign half-sunk at a comic angle, a wrong-way duck paddling upstream, a message-in-a-bottle wedged in the far reeds, and a faded 'BRIDGE OUT — duh' notice nailed to the far post. Keep the hand-painted SCUMM look, warm afternoon light from upper-left, soft cast shadows on the sand.",
+  "props": [
+    {
+      "name": "reed_clump_right",
+      "role": "foreground",
+      "x": 270,
+      "baseline": 188,
+      "scale": 0.34,
+      "anim": { "type": "sway", "amp": 5, "speed": 0.7, "fps": 0 },
+      "prompt": "A tall dense clump of riverbank reeds and cattails with brown seed-heads, painted standalone as a transparent foreground prop in the game's hand-painted SCUMM style, deep greens with golden afternoon backlight from the upper-left, slightly cartoonish exaggerated blades, base where stems meet wet sandy ground, on solid #00FF00, sized as a tall lower-third foreground occluder the character passes behind."
+    },
+    {
+      "name": "boulder_cluster_left",
+      "role": "foreground",
+      "x": 40,
+      "baseline": 190,
+      "scale": 0.28,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "A cluster of large smooth grey river boulders with mossy patches and a few wet highlights, painted standalone as a transparent foreground prop in the game's hand-painted SCUMM style, warm afternoon light from the upper-left with soft contact shadow at the base on sand, slightly exaggerated rounded cartoon shapes, on solid #00FF00, sized as a chunky lower-left foreground occluder the character passes behind."
+    },
+    {
+      "name": "grass_rock_tuft_front",
+      "role": "foreground",
+      "x": 158,
+      "baseline": 198,
+      "scale": 0.18,
+      "anim": { "type": "sway", "amp": 3, "speed": 1.1, "fps": 0 },
+      "prompt": "A low foreground tuft of wild riverbank grass with a small mossy rock and a stray broken bridge plank leaning in it, painted standalone as a transparent foreground prop in the game's hand-painted SCUMM style, deep saturated greens and warm browns lit from the upper-left, slightly cartoonish blades, base sitting on wet sand at the very bottom edge of frame, on solid #00FF00, sized as a short wide front-edge occluder the character passes behind."
+    }
+  ],
+  "ambient": [
+    { "what": "water shimmer / surface glints", "type": "frames", "where": "river mid-band x:0-320, y:104-156", "notes": "2-4 frame loop of sparkles and ripple lines drifting; subtle, low fps so it reads as flowing water without distracting from the bridge puzzle" },
+    { "what": "swaying foliage", "type": "sway", "where": "reed_clump_right and grass_rock_tuft_front props", "notes": "gentle wind sway, slightly out of phase between the two clumps" },
+    { "what": "drifting clouds", "type": "drift", "where": "sky band y:0-86", "notes": "slow horizontal drift with wraparound, very subtle so the static treeline still reads as background" },
+    { "what": "wrong-way duck paddle", "type": "drift", "where": "river near far bank ~x:120,y:130", "notes": "the painted comic duck bobs/drifts a few px upstream then resets — pure flavor gag" }
+  ],
+  "bizarre": "A smug fish surfaces mid-river to silently judge the broken bridge. A half-sunk 'NO DIVING' sign tilts at an absurd angle in deep water. A wrong-way duck paddles determinedly upstream and gets nowhere. A 'BRIDGE OUT — duh' notice is nailed to the far bridge post, and a corked message-in-a-bottle bobs uselessly against the far reeds.",
+  "walk_notes": "Keep the current walkbox (x:10..310, y:160..194) — the lower near-bank strip. The three foreground occluders (reed clump right, boulder cluster left, front grass tuft) sit on or just below the floor; their baselines are in the lower third (188-198), so when the player walks toward the back of the walkbox (smaller y, near the waterline ~y:160) she draws BEHIND them, and when she steps to the front edge she draws in front. No change to the walkable area is needed; just ensure the player can still reach the bridge near-point (x:128,y:170) and the forward exit near-point (x:226,y:168) without being hard-blocked by props — the reed clump at x:270 and boulder at x:40 sit at the edges, clear of the main path."
+}

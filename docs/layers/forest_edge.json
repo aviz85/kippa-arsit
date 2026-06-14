@@ -1,0 +1,40 @@
+{
+  "id": "forest_edge",
+  "depth": { "horizon": 150, "nearScale": 1.15, "farScale": 0.7 },
+  "plate_additions": "Keep the exact composition (asphalt hood on the left dissolving into forest dirt path on the right, distant pine tree-line, blue dithered sky). FLATTEN/REMOVE the big foreground tree trunks at far-left and far-right and the log pile near the right path — they become separate props; leave clean, paintable floor where they stood (continue the grass/dirt/asphalt underneath). Push more depth into the BACKGROUND: a denser, mistier multi-row pine silhouette receding into haze, dappled sunbeams cutting through the canopy onto the dirt, a crumbling last lamppost where the asphalt gives out, and far-back surreal LucasArts gags — a tiny 'YOU ARE LEAVING THE HOOD / NO WiFi BEYOND THIS POINT' municipal sign half-swallowed by ivy, a single confused pigeon perched on a 'NO PIGEONS' notice, a vending machine rusting at the forest's edge with one glowing button. Richer hand-painted texture on the path and curb, more ferns and undergrowth pushed into the mid-distance so the floor reads as receding ground."
+,
+  "props": [
+    { "name": "fg_tree_left", "role": "foreground",
+      "x": 38, "baseline": 158,
+      "scale": 0.95,
+      "anim": { "type": "sway", "amp": 2.5, "speed": 0.4, "fps": 0 },
+      "prompt": "Paint ONLY the large gnarled foreground oak at the far-left of the forest-edge scene, as a standalone transparent prop on solid #00FF00. A thick, knotted brown trunk rising from the bottom-left edge of the frame with a broad layered dark-green canopy crowning the top-left corner, bark grain and a couple of low knots, exaggerated cartoon LucasArts SCUMM proportions matching the scene's warm late-afternoon side-light (light from the right, shadow side on the left). The trunk must read as a solid occluder the character can walk behind; base meets the ground at the lower-left third. Same hand-painted palette and outline weight as the painted background."
+    },
+    { "name": "fg_tree_right", "role": "foreground",
+      "x": 302, "baseline": 156,
+      "scale": 0.9,
+      "anim": { "type": "sway", "amp": 2.5, "speed": 0.35, "fps": 0 },
+      "prompt": "Paint ONLY the large foreground tree at the far-right edge of the forest-edge scene, as a standalone transparent prop on solid #00FF00. A straight, sturdy brown trunk with a single diagonal bark scar rising from the bottom-right edge, topped by a rounded layered green canopy bulging into the top-right corner, exaggerated cartoon LucasArts SCUMM proportions, warm side-light coming from the left so its right side is in shadow. A solid occluder the character can pass behind; base meets the dirt at the lower-right third. Same hand-painted palette, outline weight and light as the painted background."
+    },
+    { "name": "log_pile", "role": "foreground",
+      "x": 265, "baseline": 152,
+      "scale": 0.28,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY the stacked pyramid of chopped firewood logs from the forest-edge scene, as a standalone transparent prop on solid #00FF00. A tidy pyramid of cut log rounds (bottom row of three, middle of two, one on top) showing concentric brown/tan end-grain rings, slightly mossy, a stray bark chip at the base, exaggerated cartoon LucasArts SCUMM style, warm side-light from the left casting soft shadow to the right. Low and chunky so it sits in the lower third; the character can crouch-walk behind it. Same hand-painted palette and outline weight as the painted background."
+    },
+    { "name": "forest_sign", "role": "midground",
+      "x": 152, "baseline": 136,
+      "scale": 0.22,
+      "anim": { "type": "sway", "amp": 1.5, "speed": 0.6, "fps": 0 },
+      "prompt": "Paint ONLY the wooden 'FOREST / יער' sign on a single post from the forest-edge scene, as a standalone transparent prop on solid #00FF00. A weathered tan plank board with carved/engraved lettering nailed to a thin brown post stuck in the ground, slightly crooked, a tiny snail climbing the post, exaggerated cartoon LucasArts SCUMM style, warm side-light from the left. The board hangs above head height (midground) so the character walks in front of the post but the board floats over her; base of the post meets the ground mid-frame. Same hand-painted palette and outline weight as the painted background."
+    }
+  ],
+  "ambient": [
+    { "what": "swaying tree canopies", "type": "sway", "where": "fg_tree_left and fg_tree_right canopy tops", "notes": "Gentle ±2-3deg rotation pivoting from each trunk base, slightly out of phase between the two trees so the foliage breathes." },
+    { "what": "drifting sunbeams / dappled light through canopy", "type": "pulse", "where": "60,150 to 240,180 across the dirt path", "notes": "Soft additive light pools that slowly brighten/fade as if the canopy moves overhead; sells the unseen leaves above." },
+    { "what": "drifting haze in the distant pine line", "type": "drift", "where": "0,96 to 320,110 (tree-line band)", "notes": "Slow horizontal wisp of mist looping with wraparound behind the pines to deepen the background." },
+    { "what": "blinking vending-machine button", "type": "frames", "where": "background vending machine at the forest's edge (right of mid-back)", "notes": "2-3 frame glow loop on the single lit button — a quiet surreal gag in the deep background." }
+  ],
+  "bizarre": "The municipal sign half-eaten by ivy reads 'YOU ARE NOW LEAVING THE HOOD — NO WiFi BEYOND THIS POINT'. A single confused pigeon perches directly on a 'NO PIGEONS' notice. A rusting vending machine glows at the very spot civilization ends, one button lit, dispensing nothing. The 'FOREST/יער' sign has tiny hand-scrawled subtext under the carved word, and a snail slowly scaling its post as living set-dressing.",
+  "walk_notes": "Keep the existing walkbox {x:14,y:160,w:292,h:34} essentially as-is — it already sits below all prop baselines. The three foreground occluders (fg_tree_left baseline 158, fg_tree_right baseline 156, log_pile baseline 152) all anchor at or above the walk floor (y≥160), so the player correctly draws BEHIND them when standing further back (smaller feet-y) and in FRONT when stepping down toward the camera. The forest_sign post (baseline 136) is above the floor so the player always passes in front of it. No change to the walkable polygon is required; optionally nudge the left edge to x:18 so the player can't clip into the left tree trunk."
+}

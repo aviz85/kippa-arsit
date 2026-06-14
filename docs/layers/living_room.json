@@ -1,0 +1,59 @@
+{
+  "id": "living_room",
+  "depth": { "horizon": 158, "nearScale": 1.15, "farScale": 0.7 },
+  "plate_additions": "Repaint the same warm worn 80s Israeli living room (beige dithered walls, dark-red skirting, brown carpet floor, top-left light) but FLATTEN/REMOVE the big foreground couch and the CRT-TV-on-stand — they become separate props, so leave that floor area open and just paint the wall, skirting and carpet that would sit behind them. Keep the window (left), the framed photo of too-intense young granny clutching her 'carrot' (center-top), the far-left exit arch and far-right kitchen doorway. Add richer surreal LucasArts background detail & gags: faded wallpaper with a repeating granny-silhouette motif you only notice on a second look, a crooked second tiny family photo whose faces are scratched out, a wall clock stuck at the exact minute someone last ate a cookie, a doily-covered side shelf with a porcelain wolf figurine wearing a tiny hood, water-stains shaped vaguely like teeth above the doorway, and morning hood-red light spilling from the window across the wall.",
+  "props": [
+    {
+      "name": "couch",
+      "role": "foreground",
+      "x": 135,
+      "baseline": 154,
+      "scale": 0.22,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY the saggy worn red three-seater couch as a standalone transparent prop on solid #00FF00, same hand-painted late-80s SCUMM style and top-left light as the living-room plate: dark-red back with a red top highlight, two saggy red seat cushions split by a center seam, two chunky dark-red arms, 1px black outlines, a single gold coin glinting lost in the right cushion. Bottom edge (where it meets the carpet) flat and clean for floor contact at the prop baseline; it must read as a big foreground occluder the girl can stand behind.",
+      "occludes_player": true
+    },
+    {
+      "name": "crt_tv_stand",
+      "role": "foreground",
+      "x": 240,
+      "baseline": 152,
+      "scale": 0.30,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY the bulky grey CRT television sitting on its low brown wooden stand, standalone transparent on solid #00FF00, matching the plate's style and top-left light: dark-grey TV body with a top-left case highlight, black bezel, glowing blue screen showing two pink staring telenovela faces and a dramatic red lipstick smear, three faint blue scanlines, a corner glare dot, a side knob panel with three dots, two bent rabbit-ear antennas with foil-ball tips, brown stand with black outline and two black legs. Flat clean bottom for floor contact; a tall enough foreground occluder that the girl passes behind it when she walks deep right toward the kitchen.",
+      "occludes_player": true
+    },
+    {
+      "name": "persian_rug",
+      "role": "midground",
+      "x": 162,
+      "baseline": 188,
+      "scale": 0.12,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY the worn purple Persian rug lying flat on the carpet, standalone transparent on solid #00FF00, same style and light as the plate: purple field with a gold border, dithered darkRed wear, a gold central medallion with a yellow center dot, 1px black outline, painted in slight perspective as if seen from the player's eye-line so it lies on the floor. This is a flat floor-dressing prop the player walks ON TOP of (drawn just above the plate, below all standing props).",
+      "occludes_player": false
+    }
+  ],
+  "ambient": [
+    {
+      "what": "CRT telenovela screen flicker (faces shift, scanlines roll, glare pulses)",
+      "type": "frames",
+      "where": "crt_tv_stand screen region, approx x:212-262 y:98-136",
+      "notes": "2-4 keyed frames cycled ~3-4 fps: tiny shifts of the two pink faces + lipstick smear, scanlines stepping down one row per frame, the corner glare dot blinking. Sells that the one-channel telenovela is 'live'."
+    },
+    {
+      "what": "window morning sky shimmer (hood-red dawn light, distant palm sway)",
+      "type": "pulse",
+      "where": "window region, approx x:18-76 y:26-78",
+      "notes": "Slow alpha/value pulse on the cyan→blue sky gradient plus a faint warm red wash that breathes; the tiny across-the-street palm gets a gentle sway. Subtle — it's set dressing, not a focal point."
+    },
+    {
+      "what": "granny photo cold eye-glints (the unblinking eyes catch light)",
+      "type": "pulse",
+      "where": "framed photo, approx x:150-190 y:20-66",
+      "notes": "Very slow pulse on the two white eye-glints so the portrait feels like it's watching — foreshadows the granny twist. Almost imperceptible; one slow shimmer every few seconds."
+    }
+  ],
+  "bizarre": "1) The granny in the wall photo SLOWLY tracks the player with her eyes (eye-glints drift toward wherever the girl stands) and her 'carrot' is subtly too pointy and metallic on a second look. 2) The porcelain hooded-wolf figurine on the shelf is facing a slightly different direction each time you re-enter the room. 3) The telenovela on the CRT is the exact same room you're standing in, one frame behind — the on-screen couch jiggles a half-second after the real one. 4) A lost remote pokes out of the couch cushions and silently changes the TV 'channel' to the identical channel.",
+  "walk_notes": "Keep the existing walkbox {x:14,y:160,w:292,h:32} essentially as-is. The couch (baseline 154) and TV+stand (baseline 152) sit just ABOVE the walkbox top (y=160), so the player only ever walks behind them, never overlapping their footprint — good. The persian rug (baseline 188) lies fully inside the floor and is walk-ON, not an occluder. No reduction of walkable area is needed; if anything, ensure the strip between the couch's right end (~x:185) and the TV's left edge (~x:210) stays open so the player can pass between them on the way to the kitchen/out exit."
+}

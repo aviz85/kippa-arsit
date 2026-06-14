@@ -6,7 +6,7 @@
     top:$('topbar'), msg:$('msg'), choices:$('choices'), verbs:$('verbs'),
     inv:$('inv'), overlay:$('overlay'), room:$('room'), score:$('score'),
   });
-  GAME._setCursorEl($('cursorlabel'));
+  GAME._setCursorEl($('sentence'));
 
   $('startbtn').addEventListener('click', ()=>{
     const b=$('startbtn'); b.textContent='טוען אמנות...'; b.disabled=true;

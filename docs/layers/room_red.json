@@ -1,0 +1,49 @@
+{
+  "id": "room_red",
+  "depth": { "horizon": 152, "nearScale": 1.15, "farScale": 0.78 },
+  "plate_additions": "Same purple-walled '90s teen bedroom composition and camera, morning warm side-light from the left window. FLATTEN the foreground occluders out of the plate: paint the bed area and the cluttered floor-pile/backpack as simple empty floor and a faint shadow footprint where they will sit (they become separate props), keeping the wood floor open and continuous across the lower third so props can be composited on top. Keep window, hip-hop poster, mirror and door painted into the plate. Add richer surreal LucasArts background detail and gags: a crooked graffiti tag bleeding off the wall, a lava-lamp glowing on a shelf, a wall clock with melting numbers, a sneaker dangling from the curtain rod, dust motes drifting in the window light, a tiny suspicious crack in the wall shaped like a wolf silhouette.",
+  "props": [
+    {
+      "name": "bed_footboard",
+      "role": "foreground",
+      "x": 56,
+      "baseline": 164,
+      "scale": 0.34,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY the unmade single bed (low wooden frame, dark gray metal headboard post on the far-left, rumpled red-and-pink checkered blanket, white pillow) as a standalone transparent prop on solid #00FF00, same hand-painted LucasArts cartoon style, warm morning side-light from the left, soft contact shadow under the frame. It is a foreground occluder the character walks behind when standing further back along the wall.",
+      "occluder_note": "Player passes behind when her feet-y < this prop's baseline (further into the room along the left wall)."
+    },
+    {
+      "name": "clutter_pile_backpack",
+      "role": "foreground",
+      "x": 168,
+      "baseline": 160,
+      "scale": 0.18,
+      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "prompt": "Paint ONLY a messy floor pile in the room's center-foreground: a worn olive-green backpack/messenger bag flopped open, with a scatter of crumpled clothes, a single sneaker, a comic book and a soda can around it, sitting on the wooden floor. Standalone transparent prop on solid #00FF00, same hand-painted LucasArts cartoon style, warm morning light from the left, soft contact shadow. Small foreground occluder the character can step behind.",
+      "occluder_note": "Sits center-floor between bed and door; player drawn behind it when her feet-y is above its baseline."
+    }
+  ],
+  "ambient": [
+    {
+      "what": "window morning light + drifting dust motes / slow cloud shimmer across the glass",
+      "type": "drift",
+      "where": "window region x:28..98 y:40..100",
+      "notes": "Warm light shaft fans down-right onto the floor; loop subtle drifting motes and a faint sky shimmer behind the panes."
+    },
+    {
+      "what": "mirror surface shimmer / glint sweep",
+      "type": "pulse",
+      "where": "mirror region x:240..280 y:34..90",
+      "notes": "Slow specular glint that sweeps across the steel glass, hinting it might answer back (it never does)."
+    },
+    {
+      "what": "lava-lamp blob churn glow",
+      "type": "frames",
+      "where": "background shelf gag x:215..235 y:95..120",
+      "notes": "2-3 frame loop of a rising/falling lava blob with a soft pulsing glow; pure flavor set-dressing."
+    }
+  ],
+  "bizarre": "A hip-hop poster whose rapper slowly turns his head to follow the player (1-2 frame nudge). A wall clock with droopy, melting numbers like it's perpetually 'too early'. A sneaker dangling by its laces from the curtain rod, swaying. A hairline wall-crack shaped exactly like a wolf's profile, foreshadowing the forest.",
+  "walk_notes": "Current walkbox {x:18,y:160,w:288,h:32} stays as the floor band but should read as depth: feet-y 152 (horizon) = far/small, feet-y ~192 = near/large. The bed_footboard (baseline 164) and clutter_pile (baseline 160) are occluders inside this band — keep the walkbox passable across their footprints so the player can walk BEHIND them (smaller feet-y) and IN FRONT (larger feet-y). Leave a clear lane along y~170-185 in front of both props and an open path to the door at far right (x~286)."
+}
