@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>כיפה ארסית — קווסט</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="cabinet">
+  <div id="topbar">
+    <span id="title">כִּיפָּה אַרְסִית</span>
+    <span id="room"></span>
+    <span id="score">ניקוד 0/100</span>
+  </div>
+
+  <div id="stage">
+    <canvas id="screen"></canvas>
+    <div id="msg" class="msgbar"></div>
+    <div id="choices" class="choices"></div>
+    <div id="overlay" class="overlay"></div>
+    <div id="cursorlabel"></div>
+  </div>
+
+  <div id="controls">
+    <div id="verbs"></div>
+    <div id="inv"></div>
+  </div>
+  <div id="hint">רמז: בחרו פעולה (ללכת/להביט/לדבר/לקחת/להשתמש), ואז לחצו על המסך. Tab=פעולה הבאה · F5=שמירה · F7=טעינה</div>
+</div>
+
+<div id="boot">
+  <div class="bootbox">
+    <h1>כִּיפָּה אַרְסִית</h1>
+    <p class="sub">הרפתקה גרפית בסגנון סיירה · 1989</p>
+    <p class="lore">הזאב צמחוני. הסבתא פסיכופטית. כיפה? ערסית של השכונה.<br>סל אחד. יער אחד. מה כבר יכול להשתבש.</p>
+    <button id="startbtn">▶ התחל משחק</button>
+    <p class="credit">העלאת קול: מקש רווח / לחיצה כדי להמשיך טקסט</p>
+  </div>
+</div>
+
+<script src="js/engine.js"></script>
+<script src="js/sprites.js"></script>
+<!-- NPC sprites -->
+<script src="js/npc/wolf.js"></script>
+<script src="js/npc/granny.js"></script>
+<script src="js/npc/granny_beast.js"></script>
+<script src="js/npc/mom.js"></script>
+<script src="js/npc/neighbor.js"></script>
+<script src="js/npc/woodcutter.js"></script>
+<script src="js/npc/critter.js"></script>
+<script src="js/items.js"></script>
+<script src="js/story.js"></script>
+<!-- SCENES (load order) -->
+<script src="js/scenes/scene01_room.js"></script>
+<script src="js/scenes/scene02_living.js"></script>
+<script src="js/scenes/scene03_hood.js"></script>
+<script src="js/scenes/scene04_forest_edge.js"></script>
+<script src="js/scenes/scene05_deep_forest.js"></script>
+<script src="js/scenes/scene06_wolf_garden.js"></script>
+<script src="js/scenes/scene07_river.js"></script>
+<script src="js/scenes/scene08_granny_ext.js"></script>
+<script src="js/scenes/scene09_granny_int.js"></script>
+<script src="js/scenes/scene10_finale.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>
