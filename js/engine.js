@@ -469,7 +469,9 @@
       if(bg) ctx.drawImage(bg, 0,0, W, H);
       else { try{ cur.drawBackground(ctx); }catch(e){ console.error('bg',e); } }
       drawPlayer();
-      for(const h of (cur.hotspots||[])){ if(h.draw){ try{h.draw.call(h,ctx);}catch(e){} } }
+      // With a painted bg, skip procedural hotspot overlays EXCEPT those flagged keepDraw
+      // (NPC sprites & world items). Without a painted bg, draw everything (procedural fallback).
+      for(const h of (cur.hotspots||[])){ if(h.draw && (!bg || h.keepDraw)){ try{h.draw.call(h,ctx);}catch(e){} } }
       for(const ex of (cur.exits||[])){ if(ex.arrow) drawArrow(ex); }
     }
     if(transitioning) drawFade();

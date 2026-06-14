@@ -101,9 +101,6 @@
       GAME.rect(ctx,0,86,16,74,C.black);
       GAME.rect(ctx,2,88,12,72,C.darkRed);
       GAME.dither(ctx,2,88,12,72,C.darkRed,C.black);
-
-      // ---- mom standing near the kitchen doorway ----
-      GAME.drawSprite(ctx,'mom',278,156,0,'left',0.95);
     },
 
     hotspots:[
@@ -159,7 +156,8 @@
       },
 
       // ---------- MOM (the NPC, mission-giver) ----------
-      { id:'mom', name:'אמא', rect:{x:266,y:118,w:30,h:44}, near:{x:258,y:172},
+      { id:'mom', name:'אמא', rect:{x:266,y:118,w:30,h:44}, near:{x:258,y:172}, keepDraw:true,
+        draw(ctx){ GAME.drawSprite(ctx,'mom',278,156,0,'left',0.95); },
         onLook(){ GAME.say('אמא, ליד המטבח, מנגבת ידיים במגבת ובוחנת אותך מכף רגל ועד כיפה.'); },
         onTake(){ GAME.RED('"קח את אמא" — זה לא העידן הזה, אחי. אמא לא זזה בלי קפה.'); },
         onUse(item){

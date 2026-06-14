@@ -64,8 +64,8 @@
       GAME.ellipse(ctx,246,80,9,3,C.green);
 
       // ============ CENTER anchor: tiny red silhouette on the path ============
-      // small walking-away figure to anchor the wide shot (static, atmospheric)
-      GAME.drawSprite(ctx,'red',150,150,0,'up',0.6);
+      // (removed: painted vista now provides the wide shot; the procedural
+      //  red figure looked out of place over the painted background)
 
       // storybook vignette frame
       GAME.box(ctx,2,2,316,196,C.black);

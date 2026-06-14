@@ -132,6 +132,7 @@
     hotspots:[
       // ---------------- the woodcutter NPC ----------------
       { id:'woodcutter', name:'חוטב העצים', rect:{x:172,y:104,w:40,h:52}, near:{x:170,y:172},
+        keepDraw:true,
         draw(ctx){
           // stands just behind the stump, facing the player (left)
           GAME.drawSprite(ctx,'woodcutter',196,140,0,'left',1.0);

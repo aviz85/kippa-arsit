@@ -168,7 +168,8 @@
       },
 
       // -- GRANNY in bed: the inverted classic + the branch --
-      { id:'granny', name:'סבתא', rect:{x:228,y:104,w:74,h:54}, near:{x:210,y:172},
+      { id:'granny', name:'סבתא', rect:{x:228,y:104,w:74,h:54}, near:{x:210,y:172}, keepDraw:true,
+        draw(ctx){ GAME.drawSprite(ctx,'granny',252,150,0,'left',0.9); },
         onLook(){ GAME.say('סבתא במיטה, חיוך מתוק עד הקובייה. רק שהעיניים שלה לא קיבלו את התזכיר על החיוך.'); },
         onTake(){ GAME.RED('לחבק את סבתא? אחרי קיר הסכינים? תכל\'ס לא.'); },
         onUse(item){

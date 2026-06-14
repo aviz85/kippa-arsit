@@ -81,7 +81,7 @@
       },
 
       // the basket — the key item of this room
-      { id:'basket_spot', name:'הסל', rect:{x:112,y:138,w:24,h:22}, near:{x:124,y:172},
+      { id:'basket_spot', name:'הסל', rect:{x:112,y:138,w:24,h:22}, near:{x:124,y:172}, keepDraw:true,
         draw(ctx){ if(GAME.has('basket')) return; // hide once taken
           GAME.itemDef('basket').draw(ctx,112,134,1.4); },
         onLook(){ if(GAME.has('basket')){ GAME.say('לקחת כבר את הסל.'); return; }

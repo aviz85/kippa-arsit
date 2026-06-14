@@ -93,6 +93,7 @@
     hotspots:[
       // ----- the wolf, tending his plants (the heart of the scene) -----
       { id:'wolf', name:'הזאב', rect:{x:WX-12,y:WY-42,w:26,h:44}, near:{x:WX-26,y:174},
+        keepDraw:true,
         draw(ctx){
           GAME.drawSprite(ctx,'wolf', WX, WY, 0, 'left', 1.0);
         },

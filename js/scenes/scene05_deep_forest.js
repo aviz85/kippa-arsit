@@ -90,7 +90,7 @@
 
     hotspots:[
       // --- the sad WOLF on a log (first meeting) ----------------------------
-      { id:'wolf', name:'הזאב', rect:{x:196,y:118,w:54,h:50}, near:{x:200,y:170},
+      { id:'wolf', name:'הזאב', rect:{x:196,y:118,w:54,h:50}, near:{x:200,y:170}, keepDraw:true,
         draw(ctx){
           // the log he sits on
           GAME.rect(ctx,196,150,58,12,C.brown); GAME.box(ctx,196,150,58,12,C.black);
@@ -171,7 +171,7 @@
       },
 
       // --- the fleeing critter / rabbit ------------------------------------
-      { id:'critter', name:'הארנב', rect:{x:96,y:146,w:22,h:16}, near:{x:108,y:172},
+      { id:'critter', name:'הארנב', rect:{x:96,y:146,w:22,h:16}, near:{x:108,y:172}, keepDraw:true,
         draw(ctx){ if(GAME.state.critterGone) return;
           GAME.drawSprite(ctx,'critter',104,160,0,'left',0.9); },
         onLook(){ if(GAME.state.critterGone){ GAME.say('הארנב כבר עף מפה. היה לו תור.'); return; }

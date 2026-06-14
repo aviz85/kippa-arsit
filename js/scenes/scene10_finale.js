@@ -97,7 +97,7 @@
 
     hotspots:[
       // GRANNY in / rising from the bed — the centerpiece, drawn over the bed
-      { id:'granny', name:'סבתא', rect:{x:120,y:84,w:80,h:60}, near:{x:150,y:178},
+      { id:'granny', name:'סבתא', rect:{x:120,y:84,w:80,h:60}, near:{x:150,y:178}, keepDraw:true,
         draw(ctx){
           const st=S();
           // She rises out of the covers as the script advances (t grows in onEnter chain).
@@ -110,26 +110,21 @@
             GAME.rect(ctx,182,118,16,12,C.skin);            // head peeking
             GAME.rect(ctx,180,114,20,5,C.ltGray);           // white hair / cap
             GAME.px(ctx,186,123,C.black); GAME.px(ctx,193,123,C.black); // tiny eyes
+          } else if(phase>=2){
+            // THE REVEAL — knife-revealed phase: swap to the menacing beast form.
+            // granny_beast already carries the raised butcher knife, manic eyes and grin,
+            // so no extra hand-drawn knife/face overlay is needed here.
+            const baseY = 120;
+            GAME.drawSprite(ctx,'granny_beast',cx,baseY+24,0,'left',1.0);
           } else {
-            // granny sitting up: torso rising from the blanket
-            const lift = phase>=2 ? 0 : 4;                  // settles fully upright at phase 2
+            // granny sitting up (phase 1): torso rising from the blanket
+            const lift = 4;
             const baseY = 120+lift;
             GAME.drawSprite(ctx,'granny',cx,baseY+24,0,'left',1.0);
             // a thin, hungry smile + wide eyes (override the stub's calm face area)
             GAME.line(ctx,cx-4,baseY-9,cx+4,baseY-9,C.darkRed);
             GAME.px(ctx,cx-3,baseY-13,C.black); GAME.px(ctx,cx+2,baseY-13,C.black);
             GAME.px(ctx,cx-3,baseY-12,C.red);   GAME.px(ctx,cx+2,baseY-12,C.red); // moon-glint in the eyes
-
-            if(phase>=2){
-              // THE BUTCHER KNIFE — big, raised, catching the moonlight
-              const kx=cx+12, ky=baseY-6;
-              GAME.rect(ctx,kx,ky-2,4,6,C.brown);          // fist/handle base
-              GAME.line(ctx,kx+1,ky-2,kx+1,ky-26,C.dkGray);// spine
-              GAME.poly(ctx,[[kx+1,ky-2],[kx+1,ky-26],[kx+8,ky-22],[kx+6,ky-2]], C.ltGray); // blade
-              GAME.line(ctx,kx+1,ky-26,kx+8,ky-22,C.white);// glint edge
-              GAME.px(ctx,kx+6,ky-18,C.white);
-              GAME.px(ctx,kx+4,ky-10,C.cyan);              // cold reflected moonlight
-            }
           }
         },
         onLook(){

@@ -128,9 +128,6 @@
       GAME.rect(ctx,sx,sy-26,6,5,C.yellow);     // headlight
       // kickstand
       GAME.line(ctx,sx+18,sy+2,sx+22,sy+6,C.dkGray);
-
-      // --- NPC: neighbor standing at the kiosk ---
-      GAME.drawSprite(ctx,'neighbor',286,150, 0, 'left', 0.92);
     },
 
     hotspots:[
@@ -150,6 +147,9 @@
 
       // ----- the neighbor as a body you can also click directly -----
       { id:'neighbor', name:'השכן הקיוסקאי', rect:{x:278,y:120,w:24,h:36}, near:{x:268,y:172},
+        keepDraw:true,
+        // --- NPC: neighbor standing at the kiosk (must render over painted bg) ---
+        draw(ctx){ GAME.drawSprite(ctx,'neighbor',286,150, 0, 'left', 0.92); },
         onLook(){ GAME.say('הקיוסקאי. מכיר את כל השכונה, חצי היער, ואת כל סוגי הגרעינים שקיימים.'); },
         onTalk(){ talkNeighbor(); },
         onUse(item){
