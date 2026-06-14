@@ -315,7 +315,14 @@
     const o=hit.obj;
     if(hit.kind==='exit'){
       const n = o.entry? clampToWalkbox(o.rect.x+o.rect.w/2, H-14) : nearPoint(o);
-      GAME.walkTo(n.x, n.y, ()=> GAME.goto(o.to, o.entry));
+      GAME.walkTo(n.x, n.y, ()=>{
+        if(typeof o.gate==='function' && !o.gate()){
+          GAME.sfx('error'); if(o.gateFail) try{o.gateFail();}catch(e){}
+          else GAME.say('אי אפשר לעבור כאן עכשיו.');
+          return;
+        }
+        GAME.goto(o.to, o.entry);
+      });
       return;
     }
     const h=o;

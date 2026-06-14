@@ -72,7 +72,11 @@ GAME.registerScene({
 
   exits: [
     { id:'door', name:'הדלת', rect:{x:280,y:80,w:40,h:90}, to:'living_room',
-      entry:{x:40,y:170,dir:'right'}, arrow:'right' }
+      entry:{x:40,y:170,dir:'right'}, arrow:'right',
+      // OPTIONAL gating: player walks to the exit, then gate() is checked.
+      gate(){ return GAME.has('basket'); },          // if false -> stays
+      gateFail(){ GAME.MOM('בלי הסל את לא זזה!'); },   // message shown when blocked
+    }
   ],
 
   onEnter() {},   // runs each time scene becomes active

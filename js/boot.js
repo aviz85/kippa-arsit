@@ -11,7 +11,7 @@
   $('startbtn').addEventListener('click', ()=>{
     $('boot').style.display='none';
     GAME.sfx('door');
-    GAME.start('room_red');     // first scene
+    GAME.start('intro');        // intro cutscene → room_red
   });
   // allow Enter on boot
   window.addEventListener('keydown',(e)=>{
