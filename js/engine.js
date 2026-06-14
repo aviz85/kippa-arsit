@@ -326,6 +326,10 @@
   function enterScene(id, entry, force){
     const s=scenes[id]; if(!s){ console.error('no scene',id); GAME.say('(החדר '+id+' עוד לא נבנה)'); return; }
     cur=s; msgQueue=[]; msgActive=false; closeChoice();
+    // v3: apply layered depth + foreground props (if defined) — overrides only when present
+    if(GAME.LAYERS && GAME.LAYERS[id]){ const L=GAME.LAYERS[id];
+      if(L.props) s.props=L.props;
+      if(L.depth) s.scale={near:L.depth.near, far:L.depth.far, horizon:L.depth.horizon}; }
     const e = entry || s.entry || {x:160,y:175,dir:'right'};
     player.x=e.x; player.y=e.y; player.dir=e.dir||'right'; player.moving=false; player.path=null;
     renderTop();

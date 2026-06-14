@@ -21,7 +21,15 @@
   Object.entries(SPRITES).forEach(([id,m]) => m.dirs.forEach(d => list['spr_'+id+'_'+d] = 'assets/spr/'+id+'_'+d+'.png'));
   ITEMS.forEach(i => list['item_'+i] = 'assets/item/'+i+'.png');
   list['ui_title'] = 'assets/ui/title.png';
+  list['ui_cursor'] = 'assets/ui/cursor.png';
   VERBS.forEach(v => list['ui_verb_'+v] = 'assets/ui/verb_'+v+'.png');
+
+  // v3 foreground props (from js/layers.js) + any walk-cycle frames declared in sprite meta
+  if (window.GAME && GAME.LAYERS) {
+    Object.values(GAME.LAYERS).forEach(L => (L.props||[]).forEach(p => {
+      if (p.img) list[p.img] = 'assets/prop/' + p.img.replace(/^prop_/, '') + '.png';
+    }));
+  }
 
   const meta = {};
   Object.entries(SPRITES).forEach(([id,m]) => meta[id] = {h:m.h});
