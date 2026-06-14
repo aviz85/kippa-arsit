@@ -4,7 +4,7 @@
   const SCENES = ['intro','room_red','living_room','hood','forest_edge','deep_forest',
                   'wolf_garden','river','granny_ext','granny_int','finale'];
   const SPRITES = {
-    red:{h:36,dirs:['down','up','side']},
+    red:{h:36,dirs:['down','up','side'],frames:{down:3,up:3,side:3}},
     wolf:{h:48,dirs:['side']},
     granny:{h:34,dirs:['side']},
     granny_beast:{h:42,dirs:['side']},
@@ -18,7 +18,11 @@
 
   const list = {};
   SCENES.forEach(s => list['bg_'+s] = 'assets/bg/'+s+'.png');
-  Object.entries(SPRITES).forEach(([id,m]) => m.dirs.forEach(d => list['spr_'+id+'_'+d] = 'assets/spr/'+id+'_'+d+'.png'));
+  Object.entries(SPRITES).forEach(([id,m]) => m.dirs.forEach(d => {
+    list['spr_'+id+'_'+d] = 'assets/spr/'+id+'_'+d+'.png';
+    const nf = m.frames && m.frames[d];
+    if (nf) for (let f=0; f<nf; f++) list['spr_'+id+'_'+d+'_'+f] = 'assets/spr/'+id+'_'+d+'_'+f+'.png';
+  }));
   ITEMS.forEach(i => list['item_'+i] = 'assets/item/'+i+'.png');
   list['ui_title'] = 'assets/ui/title.png';
   list['ui_cursor'] = 'assets/ui/cursor.png';
@@ -32,7 +36,7 @@
   }
 
   const meta = {};
-  Object.entries(SPRITES).forEach(([id,m]) => meta[id] = {h:m.h});
+  Object.entries(SPRITES).forEach(([id,m]) => meta[id] = {h:m.h, frames:m.frames});
 
   GAME.registerAssets(list, meta);
 })();
