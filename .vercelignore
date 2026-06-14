@@ -1,0 +1,7 @@
+assets/raw/
+assets/layout/
+docs/
+tools/
+node_modules/
+*.md
+.git/
