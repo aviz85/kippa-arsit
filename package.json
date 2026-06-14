@@ -1,0 +1,30 @@
+{
+  "name": "rad-hood-opus",
+  "version": "1.0.0",
+  "description": "הרפתקה גרפית בסגנון סיירה (SCI, סוף שנות ה-80) — קומדיה ישראלית מבוססת על \"כיפה אדומה\". הפעם **כיפה** היא ערסית של השכונה, **הזאב** צמחוני, ביישן ונשמה, ו**הסבתא** היא הנבל האמיתי: פסיכופתית מתוקה עם אוסף סכינים. סל אחד, יער אחד, וטוויסט אחד גדול.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aviz85/kippa-arsit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aviz85/kippa-arsit/issues"
+  },
+  "homepage": "https://github.com/aviz85/kippa-arsit#readme",
+  "dependencies": {
+    "@google/genai": "^2.8.0",
+    "dotenv": "^17.4.2",
+    "mime": "^4.1.0",
+    "sharp": "^0.35.1"
+  }
+}

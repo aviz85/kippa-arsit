@@ -9,9 +9,13 @@
   GAME._setCursorEl($('cursorlabel'));
 
   $('startbtn').addEventListener('click', ()=>{
-    $('boot').style.display='none';
-    GAME.sfx('door');
-    GAME.start('intro');        // intro cutscene → room_red
+    const b=$('startbtn'); b.textContent='טוען אמנות...'; b.disabled=true;
+    GAME.loadAssets((ok,total)=>{
+      console.log('[assets] loaded '+ok+'/'+total);
+      $('boot').style.display='none';
+      GAME.sfx('door');
+      GAME.start('intro');        // intro cutscene → room_red
+    });
   });
   // allow Enter on boot
   window.addEventListener('keydown',(e)=>{

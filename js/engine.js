@@ -19,12 +19,32 @@
   };
   const C = GAME.C;
 
-  /* ---- canvas buffer ------------------------------------------------------ */
-  let cv, ctx, scaleCSS = 3;
+  /* ---- canvas buffer (hi-res render, logical coords preserved) ------------ */
+  const RS = 4;                         // render scale: canvas is 1280x800, logic stays 320x200
+  GAME.RS = RS;
+  let cv, ctx;
   GAME._initCanvas = function (canvas) {
-    cv = canvas; cv.width = W; cv.height = H;
-    ctx = cv.getContext('2d'); ctx.imageSmoothingEnabled = false;
+    cv = canvas; cv.width = W * RS; cv.height = H * RS;
+    ctx = cv.getContext('2d');
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
     GAME.ctx = ctx;
+  };
+
+  /* ---- asset system (images with procedural fallback) -------------------- */
+  const assetImgs = {}, assetOK = {};
+  GAME._spriteMeta = {};               // id -> {h: logicalHeight}
+  GAME.registerAssets = (list, spriteMeta) => { GAME._assetList = list || {}; Object.assign(GAME._spriteMeta, spriteMeta || {}); };
+  GAME.img = (key) => (assetOK[key] ? assetImgs[key] : null);
+  GAME.loadAssets = (cb) => {
+    const entries = Object.entries(GAME._assetList || {});
+    let pending = entries.length; if (!pending) { cb && cb(0, 0); return; }
+    let okN = 0;
+    entries.forEach(([key, url]) => {
+      const im = new Image();
+      im.onload = () => { const good = im.naturalWidth > 0; assetOK[key] = good; if (good) { assetImgs[key] = im; okN++; } if (--pending === 0) cb && cb(okN, entries.length); };
+      im.onerror = () => { assetOK[key] = false; if (--pending === 0) cb && cb(okN, entries.length); };
+      im.src = url;
+    });
   };
 
   /* ---- pixel-art drawing DSL ---------------------------------------------- */
@@ -138,13 +158,37 @@
   const sprites = {};
   GAME.registerSprite = (id,def)=>{ sprites[id]=def; };
   GAME.drawSprite = (g,id,x,y,frame,dir,scale)=>{
+    const sc = scale==null?1:scale; dir = dir||'right';
+    const meta = GAME._spriteMeta[id];
+    if(meta){
+      const d = dir==='up'?'up':(dir==='down'?'down':'side');
+      const img = GAME.img('spr_'+id+'_'+d) || GAME.img('spr_'+id+'_side') || GAME.img('spr_'+id+'_down');
+      if(img){
+        const dh = (meta.h||34)*sc, dw = dh*(img.naturalWidth/img.naturalHeight);
+        GAME.ellipse(g,x,y,Math.max(2,dw*0.42),Math.max(1,2.4*sc),'rgba(0,0,0,.28)');
+        const bob = (frame===1||frame===3)? -0.6*sc : 0;
+        g.save();
+        if(dir==='left'){ g.translate(x,0); g.scale(-1,1); g.translate(-x,0); }
+        g.drawImage(img, x-dw/2, y-dh+bob, dw, dh);
+        g.restore();
+        return;
+      }
+    }
     const sp=sprites[id]; if(!sp){ GAME.rect(g,x-6,y-24,12,24,C.purple); return; }
-    sp.draw(g,x,y,frame|0,dir||'right',scale==null?1:scale);
+    sp.draw(g,x,y,frame|0,dir,sc);
   };
 
   /* ---- items -------------------------------------------------------------- */
   const items = {};
-  GAME.registerItem = (id,def)=>{ items[id]=def; };
+  GAME.registerItem = (id,def)=>{
+    const orig = def.draw;
+    def.draw = function(g,x,y,s){ s=s||1;
+      const img = GAME.img('item_'+id);
+      if(img){ g.drawImage(img, x, y, 16*s, 16*s); return; }
+      if(orig) orig.call(def,g,x,y,s);
+    };
+    items[id]=def;
+  };
   GAME.itemDef = (id)=> items[id];
   GAME.selItem = null;
 
@@ -189,9 +233,9 @@
       const def=items[id]; const slot=document.createElement('button');
       slot.className='slot'+(GAME.selItem===id?' sel':'');
       slot.title=def?def.name:id;
-      const c=document.createElement('canvas'); c.width=16;c.height=16;c.className='ico';
-      const g=c.getContext('2d'); g.imageSmoothingEnabled=false;
-      if(def&&def.draw){ try{def.draw(g,0,0,1);}catch(e){} } else { g.fillStyle=C.purple; g.fillRect(2,2,12,12); }
+      const c=document.createElement('canvas'); c.width=32;c.height=32;c.className='ico';
+      const g=c.getContext('2d'); g.imageSmoothingEnabled=true;
+      if(def&&def.draw){ try{def.draw(g,0,0,2);}catch(e){} } else { g.fillStyle=C.purple; g.fillRect(4,4,24,24); }
       slot.appendChild(c);
       slot.onclick=()=>{
         if(GAME.selItem===id){ GAME.selItem=null; }
@@ -418,13 +462,14 @@
     GAME.drawSprite(ctx,'red',player.x,player.y, Math.floor(player.frame)%4, player.dir, sc);
   }
   function render(){
+    ctx.setTransform(RS,0,0,RS,0,0);        // hi-res; all drawing uses logical 320x200 coords
     ctx.fillStyle=C.black; ctx.fillRect(0,0,W,H);
     if(cur){
-      try{ cur.drawBackground(ctx); }catch(e){ console.error('bg',e); }
-      // hotspot custom draws under player if z<player? keep simple: behind player
+      const bg = GAME.img('bg_'+cur.id);
+      if(bg) ctx.drawImage(bg, 0,0, W, H);
+      else { try{ cur.drawBackground(ctx); }catch(e){ console.error('bg',e); } }
       drawPlayer();
       for(const h of (cur.hotspots||[])){ if(h.draw){ try{h.draw.call(h,ctx);}catch(e){} } }
-      // exit arrows
       for(const ex of (cur.exits||[])){ if(ex.arrow) drawArrow(ex); }
     }
     if(transitioning) drawFade();

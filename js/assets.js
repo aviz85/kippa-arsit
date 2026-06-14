@@ -1,0 +1,30 @@
+/* assets.js — asset manifest. Files that don't exist yet fall back to procedural art.
+   As the asset-generation workflow lands PNGs, they light up automatically. */
+(function(){
+  const SCENES = ['intro','room_red','living_room','hood','forest_edge','deep_forest',
+                  'wolf_garden','river','granny_ext','granny_int','finale'];
+  const SPRITES = {
+    red:{h:36,dirs:['down','up','side']},
+    wolf:{h:48,dirs:['side']},
+    granny:{h:34,dirs:['side']},
+    granny_beast:{h:42,dirs:['side']},
+    mom:{h:34,dirs:['side']},
+    neighbor:{h:34,dirs:['side']},
+    woodcutter:{h:38,dirs:['side']},
+    critter:{h:16,dirs:['side']},
+  };
+  const ITEMS = ['basket','cookie','seeds','plank','key','evidence'];
+  const VERBS = ['walk','look','talk','take','use'];
+
+  const list = {};
+  SCENES.forEach(s => list['bg_'+s] = 'assets/bg/'+s+'.png');
+  Object.entries(SPRITES).forEach(([id,m]) => m.dirs.forEach(d => list['spr_'+id+'_'+d] = 'assets/spr/'+id+'_'+d+'.png'));
+  ITEMS.forEach(i => list['item_'+i] = 'assets/item/'+i+'.png');
+  list['ui_title'] = 'assets/ui/title.png';
+  VERBS.forEach(v => list['ui_verb_'+v] = 'assets/ui/verb_'+v+'.png');
+
+  const meta = {};
+  Object.entries(SPRITES).forEach(([id,m]) => meta[id] = {h:m.h});
+
+  GAME.registerAssets(list, meta);
+})();
