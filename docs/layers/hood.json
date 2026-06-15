@@ -10,6 +10,7 @@
       "x": 70,
       "baseline": 150,
       "scale": 0.46,
+      "units": 2.0,
       "anim": { "type": "sway", "amp": 1.5, "speed": 0.5, "fps": 0 },
       "prompt": "Paint ONLY the corner-kiosk stall as a standalone transparent prop on solid #00FF00, matching the scene's warm top-left daylight and EGA-flat painted style. A chunky wooden newsstand/kiosk: brown plank counter body with 1px black outlines, a red-and-white striped canvas awning on top (the awning gently sways), a tan service shelf, snack racks of bambaa/bisli-coloured bags (orange/yellow/red), a small glass cooler with cyan and green bottles, and a sack of black sunflower seeds on the counter. Hand-painted late-80s SCI look, flat fills, top-left highlights, bottom-right shadow. Tall enough that the player's torso is hidden when she stands behind it."
     },
@@ -19,6 +20,7 @@
       "x": 196,
       "baseline": 146,
       "scale": 0.78,
+      "units": 4.0,
       "anim": { "type": "sway", "amp": 4, "speed": 0.6, "fps": 0 },
       "prompt": "Paint ONLY one tall lonely palm tree as a standalone transparent prop on solid #00FF00, matching the scene's sunny top-left light and EGA-flat painted style. A slim brown segmented trunk with ring lines (tan highlight on the left edge, dkGray shadow on the right, 1px black outline) rising from a small kerb planter base, topped by a green/darkGreen frond crown with a couple of brown coconuts. The whole crown sways gently in the breeze. Tall, narrow silhouette so the player passes fully behind the trunk when she walks up the road."
     },
@@ -28,6 +30,7 @@
       "x": 168,
       "baseline": 158,
       "scale": 0.3,
+      "units": 1.0,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY the parked red scooter as a standalone transparent prop on solid #00FF00, matching the scene's warm daylight and EGA-flat painted style. A small cartoon delivery scooter on its kickstand: two black wheels with dkGray hubs, a red bodywork floorboard, a dark seat with darkRed shade and a seat-back, a steering column with a black handlebar and a yellow headlight, a top delivery box. Flat fills, 1px black outlines, top-left highlight, bottom-right shadow. Low foreground occluder — only hides the player's feet/shins when she stands behind it."
     }

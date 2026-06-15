@@ -6,8 +6,9 @@
     {
       "name": "big_tree_left",
       "role": "foreground",
-      "x": 22,
-      "baseline": 168,
+      "x": 20,
+      "baseline": 178,
+      "units": 4.0,
       "scale": 0.95,
       "anim": { "type": "sway", "amp": 1.0, "speed": 0.25, "fps": 0 },
       "prompt": "Paint ONLY one giant gnarled forest tree trunk for the LEFT foreground edge, in the game's hand-painted LucasArts style. Tall thick mossy bark trunk rising from floor to top of frame, twisted with knots and a low fork, patches of green moss and lichen, a couple of red-cap mushrooms clinging at its base. Warm side-light from the central god-rays on its right face, deep shadow on its left. Standalone transparent element on solid #00FF00, feet anchored at bottom."
@@ -15,8 +16,9 @@
     {
       "name": "big_tree_right",
       "role": "foreground",
-      "x": 298,
-      "baseline": 166,
+      "x": 302,
+      "baseline": 182,
+      "units": 4.4,
       "scale": 0.98,
       "anim": { "type": "sway", "amp": 1.0, "speed": 0.22, "fps": 0 },
       "prompt": "Paint ONLY one giant gnarled forest tree trunk for the RIGHT foreground edge, in the game's hand-painted LucasArts style. Massive mossy bark trunk floor-to-ceiling, twisted grain, a faint carved heart 'א.ק.' scar on the bark as a gag, lichen blotches, slightly thicker than the left tree to read as nearest. Warm rim-light on its left face from the god-rays, cool shadow on the right. Standalone transparent element on solid #00FF00, feet anchored at bottom."
@@ -24,8 +26,9 @@
     {
       "name": "mossy_log",
       "role": "foreground",
-      "x": 225,
-      "baseline": 150,
+      "x": 256,
+      "baseline": 176,
+      "units": 0.85,
       "scale": 0.42,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY a fat fallen forest log lying horizontally, in the game's hand-painted LucasArts style. Thick mossy bark log with two cut ends showing concentric growth rings, soft moss and a few tiny toadstools on top, the seat where a character sits. Warm dappled light from above-left, shadow underneath grounding it to the dirt. Standalone transparent element on solid #00FF00, bottom edge meeting the floor."
@@ -33,8 +36,9 @@
     {
       "name": "fork_signpost",
       "role": "midground",
-      "x": 156,
-      "baseline": 146,
+      "x": 168,
+      "baseline": 162,
+      "units": 1.3,
       "scale": 0.22,
       "anim": { "type": "sway", "amp": 2.0, "speed": 0.5, "fps": 0 },
       "prompt": "Paint ONLY a small weathered wooden trail signpost for mid-frame, in the game's hand-painted LucasArts style. A short post in the dirt with a single board sign nailed on, a hand-painted arrow on the board pointing UP the path, a little moss and a curled leaf on top. Warm forest light, soft cast shadow at its base. Standalone transparent element on solid #00FF00, post bottom anchored to floor."

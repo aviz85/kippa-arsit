@@ -6,18 +6,20 @@
     {
       "name": "rocking_chair",
       "role": "foreground",
-      "x": 98,
-      "baseline": 156,
+      "x": 96,
+      "baseline": 160,
       "scale": 0.30,
+      "units": 1.18,
       "anim": { "type": "sway", "amp": 4, "speed": 0.8, "fps": 0 },
       "prompt": "Paint ONLY a worn dark-wood rocking chair as a standalone transparent prop in the game's hand-painted early-90s LucasArts style, on solid #00FF00 background. Tall slatted back, curved rockers, slightly menacing empty seat. Match the scene's warm low candlelight from the left and the dim sickly-green ambient, with the lit edges catching the fire glow and the right side in shadow. Front-three-quarter view, occupies roughly the lower third height of a 320x200 frame."
     },
     {
       "name": "bed_footboard",
       "role": "foreground",
-      "x": 201,
-      "baseline": 158,
+      "x": 224,
+      "baseline": 164,
       "scale": 0.34,
+      "units": 0.82,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY the left footboard post and corner of an old red-framed bed as a standalone transparent foreground prop in the game's hand-painted early-90s LucasArts style, on solid #00FF00 background. A thick turned dark-brown wooden post topped with a knob, with a sliver of the dark-red bed rail and edge of the purple quilt attached. Match the scene's cold dim light, faint candle warmth catching the front of the post, deep shadow behind. Tall narrow vertical element meeting the floor at its base."
     },
@@ -25,8 +27,9 @@
       "name": "candle_table",
       "role": "midground",
       "x": 150,
-      "baseline": 158,
+      "baseline": 160,
       "scale": 0.22,
+      "units": 0.62,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY a small dark-wood side table with two red-tinted legs as a standalone transparent prop in the game's hand-painted early-90s LucasArts style, on solid #00FF00 background. A bare tabletop (the note and candle are painted/animated separately as overlays), slightly rickety. Match the scene's warm candlelight from above-left and the dim green ambient. Low piece meeting the floor at the bottom of its legs."
     }

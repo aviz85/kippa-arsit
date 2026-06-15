@@ -7,8 +7,8 @@
       "name": "left_tree_trunk",
       "role": "foreground",
       "x": 18,
-      "baseline": 196,
-      "scale": 1.0,
+      "baseline": 200,
+      "units": 3.3,
       "anim": { "type": "sway", "amp": 1.5, "speed": 0.4, "fps": 0 },
       "prompt": "Paint ONLY the big gnarled foreground tree on the far LEFT edge of the scene as a standalone transparent prop on solid #00FF00: a thick twisted dark-bark trunk rising the full height at the left margin, with a heavy overhanging leafy canopy arcing across the top-left, dappled overcast light from the upper-left, deep shadow side on the right. Slightly surreal LucasArts cartoon proportions — a faint suggestion of a knotty bark face. Same painted dithered palette and lighting as the granny cottage scene. Trunk base meets the mossy ground at the lower-left; foliage is rich and dark green with autumnal edges."
     },
@@ -16,17 +16,17 @@
       "name": "garden_gnome",
       "role": "foreground",
       "x": 213,
-      "baseline": 159,
-      "scale": 0.22,
+      "baseline": 168,
+      "units": 0.4,
       "anim": { "type": "bob", "amp": 1, "speed": 0.6, "fps": 0 },
       "prompt": "Paint ONLY a creepy-cute garden gnome as a standalone transparent prop on solid #00FF00: blue smock body, rosy round cheeks, fluffy white beard, tall pointed red hat, leaning slightly forward with a smile that is a touch too wide and a stare a little too direct. Small ceramic statue scale, glossy painted ceramic finish catching the overcast upper-left light, soft shadow at its base. Same painted dithered LucasArts palette and light as the granny cottage scene. It stands on the grass at the front-right of the stone path."
     },
     {
       "name": "flower_bed_planter",
       "role": "foreground",
-      "x": 63,
-      "baseline": 164,
-      "scale": 0.12,
+      "x": 70,
+      "baseline": 172,
+      "units": 0.4,
       "anim": { "type": "sway", "amp": 2, "speed": 0.8, "fps": 0 },
       "prompt": "Paint ONLY a low wooden raised flower-bed planter as a standalone transparent prop on solid #00FF00: a long shallow dark-wood box of dark soil bursting with too-perfect cartoon flowers (red, yellow, pink, white, purple, orange) on green stems, with a tiny weathered grave-like wooden sign stuck in the right end (blank, no name). Front-facing so the player can walk behind it. Overcast upper-left light, soft cast shadow on the moss. Same painted dithered LucasArts palette and lighting as the granny cottage scene."
     }

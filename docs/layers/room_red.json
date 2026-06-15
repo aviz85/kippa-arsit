@@ -6,8 +6,9 @@
     {
       "name": "bed_footboard",
       "role": "foreground",
-      "x": 56,
-      "baseline": 164,
+      "x": 52,
+      "baseline": 172,
+      "units": 0.78,
       "scale": 0.34,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY the unmade single bed (low wooden frame, dark gray metal headboard post on the far-left, rumpled red-and-pink checkered blanket, white pillow) as a standalone transparent prop on solid #00FF00, same hand-painted LucasArts cartoon style, warm morning side-light from the left, soft contact shadow under the frame. It is a foreground occluder the character walks behind when standing further back along the wall.",
@@ -16,8 +17,9 @@
     {
       "name": "clutter_pile_backpack",
       "role": "foreground",
-      "x": 168,
-      "baseline": 160,
+      "x": 108,
+      "baseline": 180,
+      "units": 0.42,
       "scale": 0.18,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY a messy floor pile in the room's center-foreground: a worn olive-green backpack/messenger bag flopped open, with a scatter of crumpled clothes, a single sneaker, a comic book and a soda can around it, sitting on the wooden floor. Standalone transparent prop on solid #00FF00, same hand-painted LucasArts cartoon style, warm morning light from the left, soft contact shadow. Small foreground occluder the character can step behind.",

@@ -5,25 +5,29 @@
 ,
   "props": [
     { "name": "fg_tree_left", "role": "foreground",
-      "x": 38, "baseline": 158,
+      "x": 30, "baseline": 162,
+      "units": 4.2,
       "scale": 0.95,
       "anim": { "type": "sway", "amp": 2.5, "speed": 0.4, "fps": 0 },
       "prompt": "Paint ONLY the large gnarled foreground oak at the far-left of the forest-edge scene, as a standalone transparent prop on solid #00FF00. A thick, knotted brown trunk rising from the bottom-left edge of the frame with a broad layered dark-green canopy crowning the top-left corner, bark grain and a couple of low knots, exaggerated cartoon LucasArts SCUMM proportions matching the scene's warm late-afternoon side-light (light from the right, shadow side on the left). The trunk must read as a solid occluder the character can walk behind; base meets the ground at the lower-left third. Same hand-painted palette and outline weight as the painted background."
     },
     { "name": "fg_tree_right", "role": "foreground",
-      "x": 302, "baseline": 156,
+      "x": 308, "baseline": 160,
+      "units": 4.0,
       "scale": 0.9,
       "anim": { "type": "sway", "amp": 2.5, "speed": 0.35, "fps": 0 },
       "prompt": "Paint ONLY the large foreground tree at the far-right edge of the forest-edge scene, as a standalone transparent prop on solid #00FF00. A straight, sturdy brown trunk with a single diagonal bark scar rising from the bottom-right edge, topped by a rounded layered green canopy bulging into the top-right corner, exaggerated cartoon LucasArts SCUMM proportions, warm side-light coming from the left so its right side is in shadow. A solid occluder the character can pass behind; base meets the dirt at the lower-right third. Same hand-painted palette, outline weight and light as the painted background."
     },
     { "name": "log_pile", "role": "foreground",
-      "x": 265, "baseline": 152,
+      "x": 270, "baseline": 168,
+      "units": 0.8,
       "scale": 0.28,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "Paint ONLY the stacked pyramid of chopped firewood logs from the forest-edge scene, as a standalone transparent prop on solid #00FF00. A tidy pyramid of cut log rounds (bottom row of three, middle of two, one on top) showing concentric brown/tan end-grain rings, slightly mossy, a stray bark chip at the base, exaggerated cartoon LucasArts SCUMM style, warm side-light from the left casting soft shadow to the right. Low and chunky so it sits in the lower third; the character can crouch-walk behind it. Same hand-painted palette and outline weight as the painted background."
     },
     { "name": "forest_sign", "role": "midground",
-      "x": 152, "baseline": 136,
+      "x": 100, "baseline": 152,
+      "units": 1.7,
       "scale": 0.22,
       "anim": { "type": "sway", "amp": 1.5, "speed": 0.6, "fps": 0 },
       "prompt": "Paint ONLY the wooden 'FOREST / יער' sign on a single post from the forest-edge scene, as a standalone transparent prop on solid #00FF00. A weathered tan plank board with carved/engraved lettering nailed to a thin brown post stuck in the ground, slightly crooked, a tiny snail climbing the post, exaggerated cartoon LucasArts SCUMM style, warm side-light from the left. The board hangs above head height (midground) so the character walks in front of the post but the board floats over her; base of the post meets the ground mid-frame. Same hand-painted palette and outline weight as the painted background."

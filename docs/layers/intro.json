@@ -8,7 +8,7 @@
       "role": "foreground",
       "x": 34,
       "baseline": 188,
-      "scale": 1.0,
+      "units": 3.1,
       "anim": { "type": "sway", "amp": 2.5, "speed": 0.35, "fps": 0 },
       "prompt": "Paint ONLY the large gnarled foreground oak at the far-left of the intro establishing shot, as a standalone transparent prop on solid #00FF00. A thick, knotted brown trunk rising from the bottom-left edge of the frame with a broad layered dark-green canopy crowning and overhanging the top-left corner, visible bark grain, a couple of low knots and an exposed root flare at the base, exaggerated cartoon LucasArts SCUMM proportions. Match the scene's warm dusk side-light and cool moon rim-light: a faint silver edge on the upper-right of the canopy (moon side) and warm shadow on the lower-left. The trunk must read as a solid vertical occluder anything can pass behind, anchored to the lower-left third. Same hand-painted palette and outline weight as the painted background.",
       "_note": "The dominant foreground occluder in the painted bg. Trunk meets the floor near the bottom-left edge; baseline 188 keeps it as a true near-camera plane."
@@ -16,9 +16,9 @@
     {
       "name": "moon_disc",
       "role": "midground",
-      "x": 252,
-      "baseline": 60,
-      "scale": 0.18,
+      "x": 267,
+      "baseline": 58,
+      "units": 1.25,
       "anim": { "type": "pulse", "amp": 0, "speed": 0.15, "fps": 0 },
       "prompt": "Paint ONLY the big full moon from the top-right of the intro shot, as a standalone transparent prop on solid #00FF00. A pale cream-yellow disc with faint hand-painted crater mottling and a soft luminous halo bleeding into transparency at its edge, exaggerated storybook LucasArts scale, slightly oversized and dreamlike. No surrounding sky — just the moon and its glow on transparent. Same painted palette and warm-cool light as the background.",
       "_note": "Floats high above the floor (baseline 60) so it always renders behind/over the far plate and the player; gives a gentle independent glow-pulse layer."
@@ -28,7 +28,7 @@
       "role": "foreground",
       "x": 22,
       "baseline": 178,
-      "scale": 0.14,
+      "units": 0.3,
       "anim": { "type": "bob", "amp": 1, "speed": 0.5, "fps": 0 },
       "prompt": "Paint ONLY the little cluster of toadstool mushrooms from the base of the left tree in the intro shot, as a standalone transparent prop on solid #00FF00. Three or four chunky storybook mushrooms — red-and-cream spotted caps and one tall pale stalk — nestled in a tuft of dark-green grass, exaggerated cartoon LucasArts proportions, warm dusk light with a faint moon-blue rim on the cap tops. Low and small, sitting in the lower-left foreground. Same hand-painted palette and outline weight as the painted background.",
       "_note": "A small foreground set-dressing occluder at the tree's foot; gentle bob sells living forest. Baseline below the tree's, so it sorts as the very nearest plane."

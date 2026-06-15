@@ -6,27 +6,27 @@
     {
       "name": "reed_clump_right",
       "role": "foreground",
-      "x": 270,
-      "baseline": 188,
-      "scale": 0.34,
+      "x": 282,
+      "baseline": 190,
+      "units": 1.1,
       "anim": { "type": "sway", "amp": 5, "speed": 0.7, "fps": 0 },
       "prompt": "A tall dense clump of riverbank reeds and cattails with brown seed-heads, painted standalone as a transparent foreground prop in the game's hand-painted SCUMM style, deep greens with golden afternoon backlight from the upper-left, slightly cartoonish exaggerated blades, base where stems meet wet sandy ground, on solid #00FF00, sized as a tall lower-third foreground occluder the character passes behind."
     },
     {
       "name": "boulder_cluster_left",
       "role": "foreground",
-      "x": 40,
-      "baseline": 190,
-      "scale": 0.28,
+      "x": 34,
+      "baseline": 192,
+      "units": 1.0,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "A cluster of large smooth grey river boulders with mossy patches and a few wet highlights, painted standalone as a transparent foreground prop in the game's hand-painted SCUMM style, warm afternoon light from the upper-left with soft contact shadow at the base on sand, slightly exaggerated rounded cartoon shapes, on solid #00FF00, sized as a chunky lower-left foreground occluder the character passes behind."
     },
     {
       "name": "grass_rock_tuft_front",
       "role": "foreground",
-      "x": 158,
-      "baseline": 198,
-      "scale": 0.18,
+      "x": 168,
+      "baseline": 200,
+      "units": 0.6,
       "anim": { "type": "sway", "amp": 3, "speed": 1.1, "fps": 0 },
       "prompt": "A low foreground tuft of wild riverbank grass with a small mossy rock and a stray broken bridge plank leaning in it, painted standalone as a transparent foreground prop in the game's hand-painted SCUMM style, deep saturated greens and warm browns lit from the upper-left, slightly cartoonish blades, base sitting on wet sand at the very bottom edge of frame, on solid #00FF00, sized as a short wide front-edge occluder the character passes behind."
     }

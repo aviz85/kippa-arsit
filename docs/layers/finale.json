@@ -8,6 +8,7 @@
       "role": "midground",
       "x": 162,
       "baseline": 158,
+      "units": 1.1,
       "scale": 0.42,
       "anim": { "type": "bob", "amp": 1, "speed": 0.6, "fps": 0 },
       "prompt": "A heavy carved-wood cottage bed seen slightly from the foot, dark walnut frame, blood-dark-red blanket with a creepy lump under it and a too-white pillow, two squat turned bedposts at the corners, painted in early-90s LucasArts gouache style on solid #00FF00 transparent background, lit by cold blue moonlight from the left and a faint warm bounce from the floor, exaggerated cartoon proportions, subtle menace; the lump should read as 'something is in this bed'"
@@ -17,6 +18,7 @@
       "role": "foreground",
       "x": 112,
       "baseline": 176,
+      "units": 0.95,
       "scale": 0.5,
       "anim": { "type": "none", "amp": 0, "speed": 1, "fps": 0 },
       "prompt": "A single tall carved wooden bed footboard post and the low footboard rail of a cottage bed, dark walnut with a turned ball finial and chunky cartoon proportions, the rail running to the right, foreground occluder so it is large and crisp, painted in early-90s LucasArts gouache style on solid #00FF00 transparent background, cold blue moonlight rim on the left edge, warm brown reflected light at the floor contact, slightly ominous"
@@ -26,6 +28,7 @@
       "role": "foreground",
       "x": 300,
       "baseline": 178,
+      "units": 2.9,
       "scale": 0.92,
       "anim": { "type": "none", "amp": 0, "speed": 1, "fps": 0 },
       "prompt": "The near vertical edge and architrave of a tall dark cottage doorway, weathered wood molding running full height on the right side of the frame, foreground occluder, painted in early-90s LucasArts gouache style on solid #00FF00 transparent background, deep night-blue shadow side facing the room with a thin cold cyan rim of moonlight, a few claw scratches in the wood"

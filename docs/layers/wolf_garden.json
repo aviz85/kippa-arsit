@@ -6,9 +6,9 @@
     {
       "name": "left_tree",
       "role": "foreground",
-      "x": 16,
-      "baseline": 196,
-      "scale": 0.98,
+      "x": 10,
+      "baseline": 200,
+      "units": 4.2,
       "anim": { "type": "sway", "amp": 1.5, "speed": 0.4, "fps": 0 },
       "prompt": "A single big gnarled deciduous tree as a standalone transparent prop in the game's hand-painted cartoon LucasArts style — thick textured brown trunk rising from bottom-left and a broad leafy green canopy arching across the upper-left, warm late-afternoon sun rim-light from the upper-right, soft cast shadow at its base. Exaggerated friendly cartoon proportions. Painted on solid #00FF00 chroma background, tight to the silhouette, nothing else in frame."
     },
@@ -16,8 +16,8 @@
       "name": "scarecrow",
       "role": "foreground",
       "x": 130,
-      "baseline": 150,
-      "scale": 0.42,
+      "baseline": 168,
+      "units": 1.5,
       "anim": { "type": "sway", "amp": 2, "speed": 0.6, "fps": 0 },
       "prompt": "A friendly garden scarecrow on a wooden cross-pole as a standalone transparent prop in the game's hand-painted cartoon LucasArts style: burlap-sack head with stitched smile and button eyes, straw sun-hat, wearing a cozy dark-blue knitted sweater (a sweet detail — someone gave the scarecrow warmth), straw poking from the cuffs, arms out on the cross-bar, pole going down to a small soil base. Warm afternoon side-light, soft shadow at the base. Painted on solid #00FF00 chroma background, tight silhouette, nothing else."
     },
@@ -25,8 +25,8 @@
       "name": "watering_can",
       "role": "foreground",
       "x": 64,
-      "baseline": 162,
-      "scale": 0.13,
+      "baseline": 178,
+      "units": 0.3,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "A small galvanised metal watering can with a long spout and rose, tilted as if just set down on the grass, standalone transparent prop in the game's hand-painted cartoon LucasArts style. Slightly worn grey metal with subtle highlights, warm afternoon light from the right, soft contact shadow under it. Painted on solid #00FF00 chroma background, tight silhouette, nothing else."
     },
@@ -34,8 +34,8 @@
       "name": "wolf_hut",
       "role": "midground",
       "x": 282,
-      "baseline": 110,
-      "scale": 0.46,
+      "baseline": 130,
+      "units": 2.6,
       "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
       "prompt": "A small cozy wooden cabin (the wolf's hut) as a standalone transparent prop in the game's hand-painted cartoon LucasArts style: brown plank walls, dark-red pitched roof, a little brick chimney with a faint curl of smoke, a glowing warm window, a red door with a brass knob, a tiny mezuzah-style plaque reading 'כניסה לצמחונים בלבד' beside the door. Warm afternoon light, soft cast shadow to the left. Painted on solid #00FF00 chroma background, tight silhouette, nothing else."
     }

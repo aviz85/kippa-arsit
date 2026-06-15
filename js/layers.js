@@ -313,7 +313,7 @@ GAME.LAYERS = {
         "img": "prop_intro_fg_tree_left",
         "x": 34,
         "baseline": 188,
-        "units": 3.13,
+        "units": 3.1,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -325,9 +325,9 @@ GAME.LAYERS = {
       {
         "name": "moon_disc",
         "img": "prop_intro_moon_disc",
-        "x": 252,
-        "baseline": 60,
-        "units": 0.56,
+        "x": 267,
+        "baseline": 58,
+        "units": 1.25,
         "layer": "back",
         "anim": {
           "type": "pulse",
@@ -341,7 +341,7 @@ GAME.LAYERS = {
         "img": "prop_intro_mushroom_cluster",
         "x": 22,
         "baseline": 178,
-        "units": 0.44,
+        "units": 0.3,
         "layer": "front",
         "anim": {
           "type": "bob",
