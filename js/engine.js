@@ -110,6 +110,9 @@
   GAME.playerAt = ()=> ({x:player.x, y:player.y});
   GAME.player = player;
 
+  /* ---- walk-area EDITOR (press E): click to trace the floor; Z undo, C clear, P export ---- */
+  GAME.editor = { on:false, pts:[] };
+
   function sceneScaleAt(y){
     const s = cur && cur.scale;
     if(!s) return 1;
@@ -142,14 +145,30 @@
     }
     return best;
   }
-  /* feet position must stay inside the walk-area (polygon preferred, else rects) */
+  /* ---- per-pixel walk MASK (deterministic, derived from the art) — preferred when present ---- */
+  function walkGrid(){ return (GAME._walkGrid && cur) ? GAME._walkGrid[cur.id] : null; }
+  function walkAt(x,y){ const g=walkGrid(); if(!g) return null;
+    let gx=clamp(Math.floor(x/W*g.w),0,g.w-1), gy=clamp(Math.floor(y/H*g.h),0,g.h-1);
+    return g.a[gy*g.w+gx]===1; }
+  function nearestWalk(x,y){ const g=walkGrid(); if(!g) return {x,y};
+    let gx=clamp(Math.floor(x/W*g.w),0,g.w-1), gy=clamp(Math.floor(y/H*g.h),0,g.h-1);
+    if(g.a[gy*g.w+gx]) return {x,y};
+    for(let r=1;r<=48;r++){ for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){
+      if(Math.max(Math.abs(dx),Math.abs(dy))!==r) continue;
+      const nx=gx+dx, ny=gy+dy; if(nx<0||ny<0||nx>=g.w||ny>=g.h) continue;
+      if(g.a[ny*g.w+nx]) return { x:(nx+0.5)/g.w*W, y:(ny+0.5)/g.h*H }; } }
+    return {x,y}; }
+
+  /* feet position must stay inside the walk-area (mask preferred, else polygon, else rects) */
   function inWalkbox(x,y){
+    if(walkGrid()){ const w=walkAt(x,y); return w==null?true:w; }
     if(cur && cur.walkpoly) return pointInPoly(x,y,cur.walkpoly);
     if(!cur || !cur.walkbox) return true;
     for(const r of cur.walkbox){ if(x>=r.x && x<=r.x+r.w && y>=r.y && y<=r.y+r.h) return true; }
     return false;
   }
   function clampToWalkbox(x,y){
+    if(walkGrid()){ return walkAt(x,y)? {x,y} : nearestWalk(x,y); }
     if(cur && cur.walkpoly){ return pointInPoly(x,y,cur.walkpoly)? {x,y} : nearestOnPoly(x,y,cur.walkpoly); }
     if(!cur || !cur.walkbox || !cur.walkbox.length) return {x,y};
     let best=null, bd=1e9;
@@ -176,7 +195,8 @@
     if(dist<=sp){ player.x=player.path.tx; player.y=player.path.ty; stopWalk(true); return; }
     player.x += (dx/dist)*sp; player.y += (dy/dist)*sp;
     // keep feet inside the walk-area every step (so a straight path can't cross water/walls)
-    if(cur && cur.walkpoly && !pointInPoly(player.x,player.y,cur.walkpoly)){
+    if(walkGrid()){ if(!walkAt(player.x,player.y)){ const c=nearestWalk(player.x,player.y); player.x=c.x; player.y=c.y; } }
+    else if(cur && cur.walkpoly && !pointInPoly(player.x,player.y,cur.walkpoly)){
       const c=nearestOnPoly(player.x,player.y,cur.walkpoly); player.x=c.x; player.y=c.y;
     }
     if(Math.abs(dx)>Math.abs(dy)) player.dir = dx<0?'left':'right';
@@ -363,6 +383,7 @@
       if(L.walkpoly) s.walkpoly=L.walkpoly; }
     const e = entry || s.entry || {x:160,y:175,dir:'right'};
     player.x=e.x; player.y=e.y; player.dir=e.dir||'right'; player.moving=false; player.path=null;
+    { const c=clampToWalkbox(player.x,player.y); player.x=c.x; player.y=c.y; }  // never spawn off the floor
     renderTop();
     if(!firstSeen[id]){ firstSeen[id]=true; if(s.onFirst) try{s.onFirst();}catch(err){console.error(err);} }
     if(s.onEnter) try{s.onEnter();}catch(err){console.error(err);}
@@ -437,6 +458,7 @@
 
   function onClick(ev){
     if(frozen || choiceOpen) return;
+    if(GAME.editor.on){ const p=logicalFromEvent(ev); GAME.editor.pts.push([Math.round(p.x),Math.round(p.y)]); return; }
     if(advanceMsg()) return;            // dismiss current message first
     const {x,y}=logicalFromEvent(ev);
     if(y<0||y>H) return;
@@ -469,6 +491,18 @@
   }
 
   function onKey(ev){
+    // walk-area editor toggle + controls (takes precedence)
+    if(ev.key==='e'||ev.key==='E'){ GAME.editor.on=!GAME.editor.on;
+      console.log('[walk-editor] '+(GAME.editor.on?('ON — '+(cur&&cur.id)+': click to add points · Z undo · C clear · P export'):'OFF')); return; }
+    if(GAME.editor.on){
+      if(ev.key==='z'||ev.key==='Z'){ GAME.editor.pts.pop(); return; }
+      if(ev.key==='c'||ev.key==='C'){ GAME.editor.pts=[]; return; }
+      if(ev.key==='p'||ev.key==='P'){ const s='['+GAME.editor.pts.map(p=>'['+p[0]+','+p[1]+']').join(',')+']';
+        console.log('[walk-editor] '+(cur&&cur.id)+' walkpoly:\n'+s);
+        try{ navigator.clipboard.writeText(s); }catch(e){}
+        GAME.say('walkpoly הועתק ('+GAME.editor.pts.length+' נק\'). ראה קונסול.'); return; }
+      if(ev.key==='t'||ev.key==='T'){ if(GAME.editor.pts.length>=3){ cur.walkpoly=GAME.editor.pts.slice(); GAME.say('בדיקה: הליכה מוגבלת לפוליגון.'); } return; }
+    }
     if(ev.key===' '||ev.key==='Enter'){ if(advanceMsg()) ev.preventDefault(); }
     if(ev.key==='Tab'){ ev.preventDefault(); const i=VERBS.findIndex(v=>v.id===GAME.verb);
       GAME.verb=VERBS[(i+1)%VERBS.length].id; GAME.selItem=null; refreshVerbs(); }
@@ -561,6 +595,12 @@
       for(const ex of (cur.exits||[])){ if(ex.arrow) drawArrow(ex); }
       if(GAME.DEBUG_WALK && cur.walkpoly){ ctx.save(); ctx.globalAlpha=0.35; GAME.poly(ctx,cur.walkpoly,'#00e5ff'); ctx.globalAlpha=1;
         for(let i=0;i<cur.walkpoly.length;i++){ const a=cur.walkpoly[i], b=cur.walkpoly[(i+1)%cur.walkpoly.length]; GAME.line(ctx,a[0],a[1],b[0],b[1],'#ff2bd0'); } ctx.restore(); }
+      if(GAME.editor.on){ const pts=GAME.editor.pts;
+        if(pts.length>=3){ ctx.save(); ctx.globalAlpha=0.25; GAME.poly(ctx,pts,'#00e5ff'); ctx.globalAlpha=1; ctx.restore(); }
+        for(let i=0;i<pts.length-1;i++) GAME.line(ctx,pts[i][0],pts[i][1],pts[i+1][0],pts[i+1][1],'#00e5ff');
+        if(pts.length>=3) GAME.line(ctx,pts[pts.length-1][0],pts[pts.length-1][1],pts[0][0],pts[0][1],'#ff2bd0');
+        for(const p of pts){ GAME.rect(ctx,p[0]-1,p[1]-1,3,3,'#ffd23f'); }
+        GAME.rect(ctx,0,0,86,9,'rgba(0,0,0,.6)'); ctx.fillStyle='#ffd23f'; ctx.font='7px monospace'; ctx.fillText('EDIT '+(cur&&cur.id)+' ['+pts.length+']',2,7); }
     }
     if(transitioning) drawFade();
   }
