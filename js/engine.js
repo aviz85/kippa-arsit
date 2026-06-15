@@ -120,13 +120,37 @@
 
   function clamp(v,a,b){ return v<a?a:v>b?b:v; }
 
-  /* feet position must stay inside a walkbox rect */
+  /* ---- walkable area: rectangles OR an arbitrary polygon (scene.walkpoly) ---- */
+  function pointInPoly(x,y,poly){
+    let inside=false;
+    for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+      const xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+      if(((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/((yj-yi)||1e-9)+xi)) inside=!inside;
+    }
+    return inside;
+  }
+  function nearestOnSeg(px,py,ax,ay,bx,by){
+    const dx=bx-ax,dy=by-ay, l2=dx*dx+dy*dy;
+    let t = l2? ((px-ax)*dx+(py-ay)*dy)/l2 : 0; t=clamp(t,0,1);
+    return {x:ax+t*dx, y:ay+t*dy};
+  }
+  function nearestOnPoly(x,y,poly){
+    let best={x,y}, bd=1e9;
+    for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+      const p=nearestOnSeg(x,y,poly[j][0],poly[j][1],poly[i][0],poly[i][1]);
+      const d=(p.x-x)**2+(p.y-y)**2; if(d<bd){bd=d;best=p;}
+    }
+    return best;
+  }
+  /* feet position must stay inside the walk-area (polygon preferred, else rects) */
   function inWalkbox(x,y){
+    if(cur && cur.walkpoly) return pointInPoly(x,y,cur.walkpoly);
     if(!cur || !cur.walkbox) return true;
     for(const r of cur.walkbox){ if(x>=r.x && x<=r.x+r.w && y>=r.y && y<=r.y+r.h) return true; }
     return false;
   }
   function clampToWalkbox(x,y){
+    if(cur && cur.walkpoly){ return pointInPoly(x,y,cur.walkpoly)? {x,y} : nearestOnPoly(x,y,cur.walkpoly); }
     if(!cur || !cur.walkbox || !cur.walkbox.length) return {x,y};
     let best=null, bd=1e9;
     for(const r of cur.walkbox){
@@ -151,6 +175,10 @@
     const dist=Math.hypot(dx,dy);
     if(dist<=sp){ player.x=player.path.tx; player.y=player.path.ty; stopWalk(true); return; }
     player.x += (dx/dist)*sp; player.y += (dy/dist)*sp;
+    // keep feet inside the walk-area every step (so a straight path can't cross water/walls)
+    if(cur && cur.walkpoly && !pointInPoly(player.x,player.y,cur.walkpoly)){
+      const c=nearestOnPoly(player.x,player.y,cur.walkpoly); player.x=c.x; player.y=c.y;
+    }
     if(Math.abs(dx)>Math.abs(dy)) player.dir = dx<0?'left':'right';
     else player.dir = dy<0?'up':'down';
     player.frame += sp/12;   // gait tied to distance moved (no moonwalk; natural cadence)
@@ -530,6 +558,8 @@
       // keepDraw overlays WITHOUT a baseline render in front (items, NPCs not depth-managed)
       for(const h of (cur.hotspots||[])){ if(h.draw && (!bg||h.keepDraw) && h.baseline==null){ try{h.draw.call(h,ctx);}catch(e){} } }
       for(const ex of (cur.exits||[])){ if(ex.arrow) drawArrow(ex); }
+      if(GAME.DEBUG_WALK && cur.walkpoly){ ctx.save(); ctx.globalAlpha=0.35; GAME.poly(ctx,cur.walkpoly,'#00e5ff'); ctx.globalAlpha=1;
+        for(let i=0;i<cur.walkpoly.length;i++){ const a=cur.walkpoly[i], b=cur.walkpoly[(i+1)%cur.walkpoly.length]; GAME.line(ctx,a[0],a[1],b[0],b[1],'#ff2bd0'); } ctx.restore(); }
     }
     if(transitioning) drawFade();
   }

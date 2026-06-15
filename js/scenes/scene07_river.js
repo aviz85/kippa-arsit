@@ -5,8 +5,10 @@
   GAME.registerScene({
     id:'river',
     name:'הנהר והגשר',
-    entry:{ x:38, y:178, dir:'right' },
-    walkbox:[ {x:10,y:160,w:300,h:34} ],
+    entry:{ x:38, y:185, dir:'right' },
+    walkbox:[ {x:10,y:160,w:300,h:34} ],   // fallback
+    // walk ONLY on the near sand bank + the bridge planks + the far bank (never in the water)
+    walkpoly:[ [10,198],[10,160],[60,155],[96,157],[150,142],[205,139],[216,151],[162,158],[112,165],[92,168],[126,183],[315,185],[315,198] ],
     scale:{ near:1.0, far:0.82, horizon:150 },
 
     drawBackground(ctx){
@@ -174,10 +176,11 @@
       { id:'back', name:'חזרה ליער', rect:{x:0,y:96,w:22,h:64}, to:'deep_forest',
         entry:{x:280,y:178,dir:'left'}, arrow:'left' },
 
-      { id:'fwd', name:'לבית סבתא', rect:{x:262,y:88,w:50,h:30}, to:'granny_ext',
-        entry:{x:40,y:178,dir:'right'}, arrow:'right', near:{x:226,y:168},
+      // exit by crossing the bridge UP to the far bank
+      { id:'fwd', name:'לבית סבתא', rect:{x:204,y:84,w:92,h:30}, to:'granny_ext',
+        entry:{x:40,y:178,dir:'right'}, arrow:'up', near:{x:242,y:112},
         gate(){ return GAME.flag(F.bridgeFixed); },
-        gateFail(){ GAME.say('הגשר שבור, אין מעבר.'); },
+        gateFail(){ GAME.say('הגשר שבור, אין מעבר. צריך משהו לסגור את הפער.'); },
       },
     ],
 

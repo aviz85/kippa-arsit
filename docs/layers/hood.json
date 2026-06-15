@@ -1,8 +1,11 @@
 {
   "id": "hood",
-  "depth": { "horizon": 112, "nearScale": 1.15, "farScale": 0.7 },
-  "plate_additions": "Repaint the same sunny Levantine neighbourhood street, SAME camera & composition, but FLATTEN/REMOVE the big foreground occluders so they can live as separate props: drop the wooden striped-awning kiosk on the left sidewalk, the lone palm tree on the road island, and the parked red scooter — leave clean open asphalt and sidewalk where they stood (paint road cracks, kerb shadow, manhole, faint tyre marks underneath so the floor reads complete). Keep the warm tan apartment blocks, AC units, balconies, rooftop laundry, the strong top-left sun and the road receding to a right-side vanishing point. Add richer surreal LucasArts background gags baked into the far plate: a crooked municipal sign with abstract glyph-scribbles and a misdirected arrow, a too-many-cables tangle between balconies, an over-stuffed pigeon perched fatly on a wire, a stray cat silhouette in a doorway, a sun-faded election poster, a dripping AC unit with a tiny puddle, laundry that includes one absurd item (a single giant sock). Keep EGA-flat fills with 1px black outlines, top-left light, integer pixels."
-  ,
+  "depth": {
+    "horizon": 112,
+    "nearScale": 1.65,
+    "farScale": 0.78
+  },
+  "plate_additions": "Repaint the same sunny Levantine neighbourhood street, SAME camera & composition, but FLATTEN/REMOVE the big foreground occluders so they can live as separate props: drop the wooden striped-awning kiosk on the left sidewalk, the lone palm tree on the road island, and the parked red scooter — leave clean open asphalt and sidewalk where they stood (paint road cracks, kerb shadow, manhole, faint tyre marks underneath so the floor reads complete). Keep the warm tan apartment blocks, AC units, balconies, rooftop laundry, the strong top-left sun and the road receding to a right-side vanishing point. Add richer surreal LucasArts background gags baked into the far plate: a crooked municipal sign with abstract glyph-scribbles and a misdirected arrow, a too-many-cables tangle between balconies, an over-stuffed pigeon perched fatly on a wire, a stray cat silhouette in a doorway, a sun-faded election poster, a dripping AC unit with a tiny puddle, laundry that includes one absurd item (a single giant sock). Keep EGA-flat fills with 1px black outlines, top-left light, integer pixels.",
   "props": [
     {
       "name": "kiosk_stall",
@@ -10,8 +13,13 @@
       "x": 70,
       "baseline": 150,
       "scale": 0.46,
-      "units": 2.0,
-      "anim": { "type": "sway", "amp": 1.5, "speed": 0.5, "fps": 0 },
+      "units": 2,
+      "anim": {
+        "type": "sway",
+        "amp": 1.5,
+        "speed": 0.5,
+        "fps": 0
+      },
       "prompt": "Paint ONLY the corner-kiosk stall as a standalone transparent prop on solid #00FF00, matching the scene's warm top-left daylight and EGA-flat painted style. A chunky wooden newsstand/kiosk: brown plank counter body with 1px black outlines, a red-and-white striped canvas awning on top (the awning gently sways), a tan service shelf, snack racks of bambaa/bisli-coloured bags (orange/yellow/red), a small glass cooler with cyan and green bottles, and a sack of black sunflower seeds on the counter. Hand-painted late-80s SCI look, flat fills, top-left highlights, bottom-right shadow. Tall enough that the player's torso is hidden when she stands behind it."
     },
     {
@@ -20,8 +28,13 @@
       "x": 196,
       "baseline": 146,
       "scale": 0.78,
-      "units": 4.0,
-      "anim": { "type": "sway", "amp": 4, "speed": 0.6, "fps": 0 },
+      "units": 4,
+      "anim": {
+        "type": "sway",
+        "amp": 4,
+        "speed": 0.6,
+        "fps": 0
+      },
       "prompt": "Paint ONLY one tall lonely palm tree as a standalone transparent prop on solid #00FF00, matching the scene's sunny top-left light and EGA-flat painted style. A slim brown segmented trunk with ring lines (tan highlight on the left edge, dkGray shadow on the right, 1px black outline) rising from a small kerb planter base, topped by a green/darkGreen frond crown with a couple of brown coconuts. The whole crown sways gently in the breeze. Tall, narrow silhouette so the player passes fully behind the trunk when she walks up the road."
     },
     {
@@ -30,17 +43,47 @@
       "x": 168,
       "baseline": 158,
       "scale": 0.3,
-      "units": 1.0,
-      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "units": 1,
+      "anim": {
+        "type": "none",
+        "amp": 0,
+        "speed": 0,
+        "fps": 0
+      },
       "prompt": "Paint ONLY the parked red scooter as a standalone transparent prop on solid #00FF00, matching the scene's warm daylight and EGA-flat painted style. A small cartoon delivery scooter on its kickstand: two black wheels with dkGray hubs, a red bodywork floorboard, a dark seat with darkRed shade and a seat-back, a steering column with a black handlebar and a yellow headlight, a top delivery box. Flat fills, 1px black outlines, top-left highlight, bottom-right shadow. Low foreground occluder — only hides the player's feet/shins when she stands behind it."
     }
   ],
   "ambient": [
-    { "what": "sun shimmer / heat-haze glint on the top-left sun", "type": "pulse", "where": "x:36,y:24 (sun, top-left)", "notes": "subtle alpha pulse on the sun disc + a faint heat ripple over the far asphalt band (y~112-126) to sell the hot street." },
-    { "what": "palm frond breeze sway", "type": "sway", "where": "palm_tree", "notes": "drives the palm crown; keep amp small (±4deg) so coconuts stay believable." },
-    { "what": "kiosk awning flutter", "type": "sway", "where": "kiosk_stall", "notes": "tiny ±1.5deg flutter on the striped canvas awning only, slower than the palm." },
-    { "what": "rooftop laundry flap", "type": "sway", "where": "x:90-140,y:34 (laundry line on the tan middle block)", "notes": "the giant absurd sock and shirts flap gently on the line; cheap ambient life high in the plate." },
-    { "what": "lit-window blink", "type": "pulse", "where": "x:80,y:40 and x:246,y:46 (warm windows)", "notes": "occasional slow alpha pulse on 2-3 gold windows so the buildings feel inhabited." }
+    {
+      "what": "sun shimmer / heat-haze glint on the top-left sun",
+      "type": "pulse",
+      "where": "x:36,y:24 (sun, top-left)",
+      "notes": "subtle alpha pulse on the sun disc + a faint heat ripple over the far asphalt band (y~112-126) to sell the hot street."
+    },
+    {
+      "what": "palm frond breeze sway",
+      "type": "sway",
+      "where": "palm_tree",
+      "notes": "drives the palm crown; keep amp small (±4deg) so coconuts stay believable."
+    },
+    {
+      "what": "kiosk awning flutter",
+      "type": "sway",
+      "where": "kiosk_stall",
+      "notes": "tiny ±1.5deg flutter on the striped canvas awning only, slower than the palm."
+    },
+    {
+      "what": "rooftop laundry flap",
+      "type": "sway",
+      "where": "x:90-140,y:34 (laundry line on the tan middle block)",
+      "notes": "the giant absurd sock and shirts flap gently on the line; cheap ambient life high in the plate."
+    },
+    {
+      "what": "lit-window blink",
+      "type": "pulse",
+      "where": "x:80,y:40 and x:246,y:46 (warm windows)",
+      "notes": "occasional slow alpha pulse on 2-3 gold windows so the buildings feel inhabited."
+    }
   ],
   "bizarre": "1) A fat pigeon on the cable that is visibly too heavy, sagging the wire into a deep V. 2) A municipal direction-sign whose arrow points straight at a blank wall (← per RTL) while its glyph-scribble label is sun-bleached to nonsense. 3) The lone palm has exactly one coconut wearing a tiny knitted hat. 4) A single oversized sock on the rooftop laundry line, three times any normal garment.",
   "walk_notes": "Floor band lowered slightly vs the EGA walkbox to match the painted plate: walkable strip is roughly x:6..314, y:128..194 (asphalt+sidewalk). horizon=112 (where the far asphalt meets the building bases). Player passes BEHIND all three props when her feet (baseline) are ABOVE theirs: behind kiosk_stall (baseline 150) and red_scooter (158) only when standing further up-street; the palm_tree (baseline 146) is the main mid-street pass-behind. Keep the kiosk's near point and the kiosk/neighbor hotspots reachable on the LEFT sidewalk now (the painted bg moved the kiosk to the left vs the old right-side EGA code — integration should remap kiosk/neighbor near.x toward ~70-90)."

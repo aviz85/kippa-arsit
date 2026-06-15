@@ -258,8 +258,8 @@ GAME.LAYERS = {
   "hood": {
     "depth": {
       "horizon": 112,
-      "near": 1.15,
-      "far": 0.7
+      "near": 1.65,
+      "far": 0.78
     },
     "props": [
       {
@@ -391,8 +391,8 @@ GAME.LAYERS = {
   "river": {
     "depth": {
       "horizon": 156,
-      "near": 1.15,
-      "far": 0.7
+      "near": 1.6,
+      "far": 0.78
     },
     "props": [
       {
