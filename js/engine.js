@@ -359,7 +359,8 @@
     // v3: apply layered depth + foreground props (if defined) — overrides only when present
     if(GAME.LAYERS && GAME.LAYERS[id]){ const L=GAME.LAYERS[id];
       if(L.props) s.props=L.props;
-      if(L.depth) s.scale={near:L.depth.near, far:L.depth.far, horizon:L.depth.horizon}; }
+      if(L.depth) s.scale={near:L.depth.near, far:L.depth.far, horizon:L.depth.horizon};
+      if(L.walkpoly) s.walkpoly=L.walkpoly; }
     const e = entry || s.entry || {x:160,y:175,dir:'right'};
     player.x=e.x; player.y=e.y; player.dir=e.dir||'right'; player.moving=false; player.path=null;
     renderTop();

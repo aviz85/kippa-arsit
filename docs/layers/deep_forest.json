@@ -1,6 +1,10 @@
 {
   "id": "deep_forest",
-  "depth": { "horizon": 150, "nearScale": 1.15, "farScale": 0.7 },
+  "depth": {
+    "horizon": 150,
+    "nearScale": 1.15,
+    "farScale": 0.7
+  },
   "plate_additions": "Keep the exact composition (warm god-rays through dense canopy, winding dirt path forking toward camera, fork sign-post mid-frame). FLATTEN/REMOVE the big foreground occluders so they can become separate props: erase the giant left-edge mossy trunk, the giant right-edge mossy trunk, and the big mossy fallen LOG on the right — paint clean walkable forest floor and continuous undergrowth where they were so the floor reads open. Push the remaining trees deeper and dimmer (atmospheric haze). Add richer surreal LucasArts detail: an extra carved heart 'א.ק. אהב את כ.ק.' faintly on a mid trunk, more layered fern/leaf clutter, a few extra red-cap toadstools tucked in the undergrowth, dust motes in the light shafts, and one tiny gag — a pair of glowing eyes peeking from a dark gap between two far trunks.",
   "props": [
     {
@@ -8,9 +12,14 @@
       "role": "foreground",
       "x": 20,
       "baseline": 178,
-      "units": 4.0,
+      "units": 4,
       "scale": 0.95,
-      "anim": { "type": "sway", "amp": 1.0, "speed": 0.25, "fps": 0 },
+      "anim": {
+        "type": "sway",
+        "amp": 1,
+        "speed": 0.25,
+        "fps": 0
+      },
       "prompt": "Paint ONLY one giant gnarled forest tree trunk for the LEFT foreground edge, in the game's hand-painted LucasArts style. Tall thick mossy bark trunk rising from floor to top of frame, twisted with knots and a low fork, patches of green moss and lichen, a couple of red-cap mushrooms clinging at its base. Warm side-light from the central god-rays on its right face, deep shadow on its left. Standalone transparent element on solid #00FF00, feet anchored at bottom."
     },
     {
@@ -20,7 +29,12 @@
       "baseline": 182,
       "units": 4.4,
       "scale": 0.98,
-      "anim": { "type": "sway", "amp": 1.0, "speed": 0.22, "fps": 0 },
+      "anim": {
+        "type": "sway",
+        "amp": 1,
+        "speed": 0.22,
+        "fps": 0
+      },
       "prompt": "Paint ONLY one giant gnarled forest tree trunk for the RIGHT foreground edge, in the game's hand-painted LucasArts style. Massive mossy bark trunk floor-to-ceiling, twisted grain, a faint carved heart 'א.ק.' scar on the bark as a gag, lichen blotches, slightly thicker than the left tree to read as nearest. Warm rim-light on its left face from the god-rays, cool shadow on the right. Standalone transparent element on solid #00FF00, feet anchored at bottom."
     },
     {
@@ -30,7 +44,12 @@
       "baseline": 176,
       "units": 0.85,
       "scale": 0.42,
-      "anim": { "type": "none", "amp": 0, "speed": 0, "fps": 0 },
+      "anim": {
+        "type": "none",
+        "amp": 0,
+        "speed": 0,
+        "fps": 0
+      },
       "prompt": "Paint ONLY a fat fallen forest log lying horizontally, in the game's hand-painted LucasArts style. Thick mossy bark log with two cut ends showing concentric growth rings, soft moss and a few tiny toadstools on top, the seat where a character sits. Warm dappled light from above-left, shadow underneath grounding it to the dirt. Standalone transparent element on solid #00FF00, bottom edge meeting the floor."
     },
     {
@@ -40,16 +59,75 @@
       "baseline": 162,
       "units": 1.3,
       "scale": 0.22,
-      "anim": { "type": "sway", "amp": 2.0, "speed": 0.5, "fps": 0 },
+      "anim": {
+        "type": "sway",
+        "amp": 2,
+        "speed": 0.5,
+        "fps": 0
+      },
       "prompt": "Paint ONLY a small weathered wooden trail signpost for mid-frame, in the game's hand-painted LucasArts style. A short post in the dirt with a single board sign nailed on, a hand-painted arrow on the board pointing UP the path, a little moss and a curled leaf on top. Warm forest light, soft cast shadow at its base. Standalone transparent element on solid #00FF00, post bottom anchored to floor."
     }
   ],
   "ambient": [
-    { "what": "god-rays / light shafts shimmer through the canopy", "type": "pulse", "where": "x:60-260, y:40-150 (the three slanted light cones in the center)", "notes": "slow alpha breathe 0.08->0.16; tie to dust motes drifting downward inside the cones" },
-    { "what": "canopy foliage sway overhead", "type": "sway", "where": "top leaf-mass y:40-110 across full width", "notes": "gentle ±1-2deg rotation so the leaf ceiling feels alive; phase-offset per blob" },
-    { "what": "fireflies / glowing motes drifting", "type": "drift", "where": "scattered points (180,100),(90,120),(255,110),(148,86),(30,108)", "notes": "small looping translate with wraparound; warm yellow/gold; subtle pulse on alpha for blink" },
-    { "what": "peeking glowing eyes gag", "type": "frames", "where": "dark gap between two far trunks ~x:130,y:95", "notes": "2-frame open/blink loop at ~1.5fps for a surreal LucasArts scare-gag" }
+    {
+      "what": "god-rays / light shafts shimmer through the canopy",
+      "type": "pulse",
+      "where": "x:60-260, y:40-150 (the three slanted light cones in the center)",
+      "notes": "slow alpha breathe 0.08->0.16; tie to dust motes drifting downward inside the cones"
+    },
+    {
+      "what": "canopy foliage sway overhead",
+      "type": "sway",
+      "where": "top leaf-mass y:40-110 across full width",
+      "notes": "gentle ±1-2deg rotation so the leaf ceiling feels alive; phase-offset per blob"
+    },
+    {
+      "what": "fireflies / glowing motes drifting",
+      "type": "drift",
+      "where": "scattered points (180,100),(90,120),(255,110),(148,86),(30,108)",
+      "notes": "small looping translate with wraparound; warm yellow/gold; subtle pulse on alpha for blink"
+    },
+    {
+      "what": "peeking glowing eyes gag",
+      "type": "frames",
+      "where": "dark gap between two far trunks ~x:130,y:95",
+      "notes": "2-frame open/blink loop at ~1.5fps for a surreal LucasArts scare-gag"
+    }
   ],
   "bizarre": "1) The fork signpost's painted arrow occasionally re-points itself a few degrees (sway) as if undecided. 2) A pair of glowing eyes blinks from the dark gap between far trunks, never approaching. 3) The carved 'א.ק. אהב את כ.ק.' heart on the right trunk has a tiny fresh-painted 'תיקון: כ.ק. לא ידעה' scratched beneath it. 4) One red toadstool in the undergrowth is faintly breathing (pulse) like it's alive and watching.",
-  "walk_notes": "Walkbox unchanged: keep {x:10,y:160,w:300,h:34} (floor lower third). Depth ramp now nearScale 1.15 at y=194, farScale 0.7 at horizon y=150. Foreground occluders sit just below/at the floor line: big_tree_left baseline 168 and big_tree_right baseline 166 let the player pass BEHIND them near the left/right exits; mossy_log baseline 150 means the player draws in front of the log when standing at the wolf's near-point (y:170) and behind it when further back. fork_signpost baseline 146 is above the walk area so the player always passes in front of it — it stays decorative midground."
+  "walk_notes": "Walkbox unchanged: keep {x:10,y:160,w:300,h:34} (floor lower third). Depth ramp now nearScale 1.15 at y=194, farScale 0.7 at horizon y=150. Foreground occluders sit just below/at the floor line: big_tree_left baseline 168 and big_tree_right baseline 166 let the player pass BEHIND them near the left/right exits; mossy_log baseline 150 means the player draws in front of the log when standing at the wolf's near-point (y:170) and behind it when further back. fork_signpost baseline 146 is above the walk area so the player always passes in front of it — it stays decorative midground.",
+  "walkpoly": [
+    [
+      40,
+      196
+    ],
+    [
+      280,
+      196
+    ],
+    [
+      252,
+      150
+    ],
+    [
+      206,
+      130
+    ],
+    [
+      150,
+      124
+    ],
+    [
+      104,
+      134
+    ],
+    [
+      70,
+      150
+    ],
+    [
+      28,
+      172
+    ]
+  ]
 }

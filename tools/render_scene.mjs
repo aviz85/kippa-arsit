@@ -50,8 +50,22 @@ function shadowSVG(wDev,hDev){
     const hLog = (p.units!=null? p.units*UNIT : (p.scale!=null? p.scale*H : 40))*scaleAt(base);
     drawables.push({baseline:base, x:p.x, hLog, path, layer:p.layer, name:p.name});
   }
-  // characters at FRONT (near) and MID for scale reference
-  const charPositions=[{x:W*0.42,y:H-6,tag:'front'},{x:W*0.6,y:horizon+(H-horizon)*0.45,tag:'mid'}];
+  // walkable polygon (if defined in the spec) -> sample character at front/mid/back INSIDE it
+  const poly = (Array.isArray(spec.walkpoly) && spec.walkpoly.length>=3) ? spec.walkpoly : null;
+  function pip(x,y,p){ let c=false; for(let i=0,j=p.length-1;i<p.length;j=i++){ const xi=p[i][0],yi=p[i][1],xj=p[j][0],yj=p[j][1];
+    if(((yi>y)!==(yj>y)) && (x<(xj-xi)*(y-yi)/((yj-yi)||1e-9)+xi)) c=!c; } return c; }
+  function insideXatY(p,y){ const xs=[]; for(let x=2;x<W;x+=2) if(pip(x,y,p)) xs.push(x); return xs.length? xs[Math.floor(xs.length/2)] : null; }
+  let charPositions;
+  if(poly){
+    const ys=poly.map(pt=>pt[1]); const yMin=Math.min(...ys), yMax=Math.max(...ys);
+    charPositions=[];
+    for(const [frac,tag] of [[0.92,'front'],[0.55,'mid'],[0.14,'back']]){
+      const y=yMin+(yMax-yMin)*frac; const x=insideXatY(poly,y); if(x!=null) charPositions.push({x,y,tag});
+    }
+    if(!charPositions.length) charPositions=[{x:W*0.5,y:H-6,tag:'front'}];
+  } else {
+    charPositions=[{x:W*0.42,y:H-6,tag:'front'},{x:W*0.6,y:horizon+(H-horizon)*0.45,tag:'mid'}];
+  }
   for(const cp of charPositions){ drawables.push({baseline:cp.y, x:cp.x, hLog:CHAR_H*scaleAt(cp.y), path:charImg, isChar:true}); }
 
   // composite list in order: back props first, then depth-sorted (front props + chars) by baseline
@@ -81,6 +95,12 @@ function shadowSVG(wDev,hDev){
   const sorted=drawables.filter(x=>x.layer!=='back').sort((a,b)=>a.baseline-b.baseline);
   for(const dd of sorted) await place(dd);
 
+  // walk-area overlay (so the polygon being traced is visible)
+  if(poly){
+    const pts=poly.map(p=>`${Math.round(p[0]*RS)},${Math.round(p[1]*RS)}`).join(' ');
+    const svg=`<svg width="${CW}" height="${CH}"><polygon points="${pts}" fill="#00e5ff" fill-opacity="0.26" stroke="#ff2bd0" stroke-width="3"/></svg>`;
+    comps.push({input:Buffer.from(svg), left:0, top:0});
+  }
   const plate = existsSync(`assets/bg/${id}.png`)?`assets/bg/${id}.png`:null;
   let base = plate? sharp(plate).resize(W*RS,H*RS,{fit:'fill'}) : sharp({create:{width:W*RS,height:H*RS,channels:3,background:'#222'}});
   const png = await base.composite(comps).png().toFile(OUT);
