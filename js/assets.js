@@ -3,15 +3,16 @@
 (function(){
   const SCENES = ['intro','room_red','living_room','hood','forest_edge','deep_forest',
                   'wolf_garden','river','granny_ext','granny_int','finale'];
+  // heights are LOGICAL px at scale 1.0; Red = the UNIT (64). NPCs sized relative to her.
   const SPRITES = {
-    red:{h:36,dirs:['down','up','side'],frames:{down:3,up:3,side:3}},
-    wolf:{h:48,dirs:['side']},
-    granny:{h:34,dirs:['side']},
-    granny_beast:{h:42,dirs:['side']},
-    mom:{h:34,dirs:['side']},
-    neighbor:{h:34,dirs:['side']},
-    woodcutter:{h:38,dirs:['side']},
-    critter:{h:16,dirs:['side']},
+    red:{h:64,dirs:['down','up','side'],frames:{down:3,up:3,side:3}},
+    wolf:{h:86,dirs:['side']},          // tall, on hind legs
+    granny:{h:58,dirs:['side']},        // hunched old lady
+    granny_beast:{h:70,dirs:['side']},
+    mom:{h:62,dirs:['side']},
+    neighbor:{h:64,dirs:['side']},
+    woodcutter:{h:72,dirs:['side']},
+    critter:{h:24,dirs:['side']},       // small rabbit
   };
   const ITEMS = ['basket','cookie','seeds','plank','key','evidence'];
   const VERBS = ['walk','look','talk','take','use'];

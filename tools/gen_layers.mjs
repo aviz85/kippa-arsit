@@ -13,11 +13,13 @@ for (const f of files) {
   catch (e) { console.error('skip (bad json):', f, e.message); continue; }
   const id = spec.id || f.replace('.json', '');
   const d = spec.depth || {};
+  const UNIT = 64;  // must match engine UNIT
   const props = (spec.props || []).map(p => ({
     name: p.name,
     img: 'prop_' + id + '_' + p.name,
     x: p.x, baseline: p.baseline,
-    scale: p.scale,
+    // convert legacy frame-fraction scale -> character-height units (initial estimate; calibrated later)
+    units: p.units != null ? p.units : (p.scale != null ? +((p.scale * 200) / UNIT).toFixed(2) : 1.5),
     layer: (p.role === 'midground') ? 'back' : 'front',
     anim: p.anim && p.anim.type && p.anim.type !== 'none' ? {
       type: p.anim.type,

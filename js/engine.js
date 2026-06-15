@@ -22,6 +22,8 @@
   /* ---- canvas buffer (hi-res render, logical coords preserved) ------------ */
   const RS = 4;                         // render scale: canvas is 1280x800, logic stays 320x200
   GAME.RS = RS;
+  const UNIT = 64;                      // character reference height (logical px @ scale 1.0); props sized in multiples of this
+  GAME.UNIT = UNIT;
   let cv, ctx;
   GAME._initCanvas = function (canvas) {
     cv = canvas; cv.width = W * RS; cv.height = H * RS;
@@ -151,7 +153,7 @@
     player.x += (dx/dist)*sp; player.y += (dy/dist)*sp;
     if(Math.abs(dx)>Math.abs(dy)) player.dir = dx<0?'left':'right';
     else player.dir = dy<0?'up':'down';
-    player.frame += 0.25;
+    player.frame += sp/12;   // gait tied to distance moved (no moonwalk; natural cadence)
   }
 
   /* ---- sprites ------------------------------------------------------------ */
@@ -494,12 +496,18 @@
     if(p.frames && p.frames.length){ const n=p.frames.length; const fi=Math.floor((GAME.t||0)/1000*(p.fps||6))%n; img=GAME.img(p.frames[fi]); }
     img = img || GAME.img(p.img || ('prop_'+cur.id+'_'+p.name));
     if(!img) return;
-    const dh = (p.scale!=null ? p.scale*H : img.naturalHeight*0.25);
+    const base = (p.baseline!=null? p.baseline : H);
+    const sc = sceneScaleAt(base);                 // ground-plane perspective at the prop's foot
+    // height in shared character-units (units * UNIT); legacy 'scale' (frame fraction) still supported
+    const hLogical = (p.units!=null ? p.units*UNIT : (p.scale!=null ? p.scale*H : img.naturalHeight*0.25));
+    const dh = hLogical*sc;
     const dw = dh*(img.naturalWidth/img.naturalHeight);
+    // contact shadow grounds the prop (skip for tall background trees where it'd float oddly)
+    if(p.shadow!==false) GAME.ellipse(ctx, p.x, base, Math.max(3,dw*0.34), Math.max(1.5,dh*0.035), 'rgba(0,0,0,.22)');
     ctx.save();
-    const a=animXform(ctx, p.anim, p.x, p.baseline);
+    const a=animXform(ctx, p.anim, p.x, base);
     if(a!==1) ctx.globalAlpha = Math.max(0,Math.min(1,a));
-    ctx.drawImage(img, p.x-dw/2, p.baseline-dh, dw, dh);
+    ctx.drawImage(img, p.x-dw/2, base-dh, dw, dh);
     ctx.restore();
   }
   function render(){

@@ -12,9 +12,9 @@ GAME.LAYERS = {
       {
         "name": "big_tree_left",
         "img": "prop_deep_forest_big_tree_left",
-        "x": 22,
-        "baseline": 168,
-        "scale": 0.95,
+        "x": 20,
+        "baseline": 178,
+        "units": 4,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -26,9 +26,9 @@ GAME.LAYERS = {
       {
         "name": "big_tree_right",
         "img": "prop_deep_forest_big_tree_right",
-        "x": 298,
-        "baseline": 166,
-        "scale": 0.98,
+        "x": 302,
+        "baseline": 182,
+        "units": 4.4,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -40,18 +40,18 @@ GAME.LAYERS = {
       {
         "name": "mossy_log",
         "img": "prop_deep_forest_mossy_log",
-        "x": 225,
-        "baseline": 150,
-        "scale": 0.42,
+        "x": 256,
+        "baseline": 176,
+        "units": 0.85,
         "layer": "front",
         "anim": null
       },
       {
         "name": "fork_signpost",
         "img": "prop_deep_forest_fork_signpost",
-        "x": 156,
-        "baseline": 146,
-        "scale": 0.22,
+        "x": 168,
+        "baseline": 162,
+        "units": 1.3,
         "layer": "back",
         "anim": {
           "type": "sway",
@@ -74,7 +74,7 @@ GAME.LAYERS = {
         "img": "prop_finale_bed_with_granny",
         "x": 162,
         "baseline": 158,
-        "scale": 0.42,
+        "units": 1.1,
         "layer": "back",
         "anim": {
           "type": "bob",
@@ -88,7 +88,7 @@ GAME.LAYERS = {
         "img": "prop_finale_footboard_post",
         "x": 112,
         "baseline": 176,
-        "scale": 0.5,
+        "units": 0.95,
         "layer": "front",
         "anim": null
       },
@@ -97,7 +97,7 @@ GAME.LAYERS = {
         "img": "prop_finale_doorframe_edge",
         "x": 300,
         "baseline": 178,
-        "scale": 0.92,
+        "units": 2.9,
         "layer": "front",
         "anim": null
       }
@@ -113,9 +113,9 @@ GAME.LAYERS = {
       {
         "name": "fg_tree_left",
         "img": "prop_forest_edge_fg_tree_left",
-        "x": 38,
-        "baseline": 158,
-        "scale": 0.95,
+        "x": 30,
+        "baseline": 162,
+        "units": 4.2,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -127,9 +127,9 @@ GAME.LAYERS = {
       {
         "name": "fg_tree_right",
         "img": "prop_forest_edge_fg_tree_right",
-        "x": 302,
-        "baseline": 156,
-        "scale": 0.9,
+        "x": 308,
+        "baseline": 160,
+        "units": 4,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -141,18 +141,18 @@ GAME.LAYERS = {
       {
         "name": "log_pile",
         "img": "prop_forest_edge_log_pile",
-        "x": 265,
-        "baseline": 152,
-        "scale": 0.28,
+        "x": 270,
+        "baseline": 168,
+        "units": 0.8,
         "layer": "front",
         "anim": null
       },
       {
         "name": "forest_sign",
         "img": "prop_forest_edge_forest_sign",
-        "x": 152,
-        "baseline": 136,
-        "scale": 0.22,
+        "x": 100,
+        "baseline": 152,
+        "units": 1.7,
         "layer": "back",
         "anim": {
           "type": "sway",
@@ -174,8 +174,8 @@ GAME.LAYERS = {
         "name": "left_tree_trunk",
         "img": "prop_granny_ext_left_tree_trunk",
         "x": 18,
-        "baseline": 196,
-        "scale": 1,
+        "baseline": 200,
+        "units": 3.3,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -188,8 +188,8 @@ GAME.LAYERS = {
         "name": "garden_gnome",
         "img": "prop_granny_ext_garden_gnome",
         "x": 213,
-        "baseline": 159,
-        "scale": 0.22,
+        "baseline": 168,
+        "units": 0.4,
         "layer": "front",
         "anim": {
           "type": "bob",
@@ -201,9 +201,9 @@ GAME.LAYERS = {
       {
         "name": "flower_bed_planter",
         "img": "prop_granny_ext_flower_bed_planter",
-        "x": 63,
-        "baseline": 164,
-        "scale": 0.12,
+        "x": 70,
+        "baseline": 172,
+        "units": 0.4,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -224,9 +224,9 @@ GAME.LAYERS = {
       {
         "name": "rocking_chair",
         "img": "prop_granny_int_rocking_chair",
-        "x": 98,
-        "baseline": 156,
-        "scale": 0.3,
+        "x": 96,
+        "baseline": 160,
+        "units": 1.18,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -238,9 +238,9 @@ GAME.LAYERS = {
       {
         "name": "bed_footboard",
         "img": "prop_granny_int_bed_footboard",
-        "x": 201,
-        "baseline": 158,
-        "scale": 0.34,
+        "x": 224,
+        "baseline": 164,
+        "units": 0.82,
         "layer": "front",
         "anim": null
       },
@@ -248,8 +248,8 @@ GAME.LAYERS = {
         "name": "candle_table",
         "img": "prop_granny_int_candle_table",
         "x": 150,
-        "baseline": 158,
-        "scale": 0.22,
+        "baseline": 160,
+        "units": 0.62,
         "layer": "back",
         "anim": null
       }
@@ -267,7 +267,7 @@ GAME.LAYERS = {
         "img": "prop_hood_kiosk_stall",
         "x": 70,
         "baseline": 150,
-        "scale": 0.46,
+        "units": 2,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -281,7 +281,7 @@ GAME.LAYERS = {
         "img": "prop_hood_palm_tree",
         "x": 196,
         "baseline": 146,
-        "scale": 0.78,
+        "units": 4,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -295,7 +295,7 @@ GAME.LAYERS = {
         "img": "prop_hood_red_scooter",
         "x": 168,
         "baseline": 158,
-        "scale": 0.3,
+        "units": 1,
         "layer": "front",
         "anim": null
       }
@@ -313,7 +313,7 @@ GAME.LAYERS = {
         "img": "prop_intro_fg_tree_left",
         "x": 34,
         "baseline": 188,
-        "scale": 1,
+        "units": 3.13,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -327,7 +327,7 @@ GAME.LAYERS = {
         "img": "prop_intro_moon_disc",
         "x": 252,
         "baseline": 60,
-        "scale": 0.18,
+        "units": 0.56,
         "layer": "back",
         "anim": {
           "type": "pulse",
@@ -341,7 +341,7 @@ GAME.LAYERS = {
         "img": "prop_intro_mushroom_cluster",
         "x": 22,
         "baseline": 178,
-        "scale": 0.14,
+        "units": 0.44,
         "layer": "front",
         "anim": {
           "type": "bob",
@@ -364,7 +364,7 @@ GAME.LAYERS = {
         "img": "prop_living_room_couch",
         "x": 135,
         "baseline": 154,
-        "scale": 0.22,
+        "units": 0.85,
         "layer": "front",
         "anim": null
       },
@@ -373,7 +373,7 @@ GAME.LAYERS = {
         "img": "prop_living_room_crt_tv_stand",
         "x": 240,
         "baseline": 152,
-        "scale": 0.3,
+        "units": 0.85,
         "layer": "front",
         "anim": null
       },
@@ -382,7 +382,7 @@ GAME.LAYERS = {
         "img": "prop_living_room_persian_rug",
         "x": 162,
         "baseline": 188,
-        "scale": 0.12,
+        "units": 0.5,
         "layer": "back",
         "anim": null
       }
@@ -398,9 +398,9 @@ GAME.LAYERS = {
       {
         "name": "reed_clump_right",
         "img": "prop_river_reed_clump_right",
-        "x": 270,
-        "baseline": 188,
-        "scale": 0.34,
+        "x": 282,
+        "baseline": 190,
+        "units": 1.1,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -412,18 +412,18 @@ GAME.LAYERS = {
       {
         "name": "boulder_cluster_left",
         "img": "prop_river_boulder_cluster_left",
-        "x": 40,
-        "baseline": 190,
-        "scale": 0.28,
+        "x": 34,
+        "baseline": 192,
+        "units": 1,
         "layer": "front",
         "anim": null
       },
       {
         "name": "grass_rock_tuft_front",
         "img": "prop_river_grass_rock_tuft_front",
-        "x": 158,
-        "baseline": 198,
-        "scale": 0.18,
+        "x": 168,
+        "baseline": 200,
+        "units": 0.6,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -444,18 +444,18 @@ GAME.LAYERS = {
       {
         "name": "bed_footboard",
         "img": "prop_room_red_bed_footboard",
-        "x": 56,
-        "baseline": 164,
-        "scale": 0.34,
+        "x": 52,
+        "baseline": 172,
+        "units": 0.78,
         "layer": "front",
         "anim": null
       },
       {
         "name": "clutter_pile_backpack",
         "img": "prop_room_red_clutter_pile_backpack",
-        "x": 168,
-        "baseline": 160,
-        "scale": 0.18,
+        "x": 108,
+        "baseline": 180,
+        "units": 0.42,
         "layer": "front",
         "anim": null
       }
@@ -471,9 +471,9 @@ GAME.LAYERS = {
       {
         "name": "left_tree",
         "img": "prop_wolf_garden_left_tree",
-        "x": 16,
-        "baseline": 196,
-        "scale": 0.98,
+        "x": 10,
+        "baseline": 200,
+        "units": 4.2,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -486,8 +486,8 @@ GAME.LAYERS = {
         "name": "scarecrow",
         "img": "prop_wolf_garden_scarecrow",
         "x": 130,
-        "baseline": 150,
-        "scale": 0.42,
+        "baseline": 168,
+        "units": 1.5,
         "layer": "front",
         "anim": {
           "type": "sway",
@@ -500,8 +500,8 @@ GAME.LAYERS = {
         "name": "watering_can",
         "img": "prop_wolf_garden_watering_can",
         "x": 64,
-        "baseline": 162,
-        "scale": 0.13,
+        "baseline": 178,
+        "units": 0.3,
         "layer": "front",
         "anim": null
       },
@@ -509,8 +509,8 @@ GAME.LAYERS = {
         "name": "wolf_hut",
         "img": "prop_wolf_garden_wolf_hut",
         "x": 282,
-        "baseline": 110,
-        "scale": 0.46,
+        "baseline": 130,
+        "units": 2.6,
         "layer": "back",
         "anim": null
       }
