@@ -1,6 +1,20 @@
 {
   "id": "forest_edge",
-  "depth": { "horizon": 150, "nearScale": 1.15, "farScale": 0.7 },
+  "depth": { "horizon": 124, "nearScale": 1.25, "farScale": 0.62 },
+  "walkpoly": [
+    [46, 196],
+    [210, 196],
+    [222, 174],
+    [208, 156],
+    [188, 141],
+    [168, 129],
+    [150, 122],
+    [132, 125],
+    [112, 134],
+    [92, 149],
+    [68, 167],
+    [40, 184]
+  ],
   "plate_additions": "Keep the exact composition (asphalt hood on the left dissolving into forest dirt path on the right, distant pine tree-line, blue dithered sky). FLATTEN/REMOVE the big foreground tree trunks at far-left and far-right and the log pile near the right path — they become separate props; leave clean, paintable floor where they stood (continue the grass/dirt/asphalt underneath). Push more depth into the BACKGROUND: a denser, mistier multi-row pine silhouette receding into haze, dappled sunbeams cutting through the canopy onto the dirt, a crumbling last lamppost where the asphalt gives out, and far-back surreal LucasArts gags — a tiny 'YOU ARE LEAVING THE HOOD / NO WiFi BEYOND THIS POINT' municipal sign half-swallowed by ivy, a single confused pigeon perched on a 'NO PIGEONS' notice, a vending machine rusting at the forest's edge with one glowing button. Richer hand-painted texture on the path and curb, more ferns and undergrowth pushed into the mid-distance so the floor reads as receding ground."
 ,
   "props": [

@@ -1,10 +1,24 @@
 {
   "id": "hood",
   "depth": {
-    "horizon": 112,
-    "nearScale": 1.65,
-    "farScale": 0.78
+    "horizon": 104,
+    "nearScale": 1.35,
+    "farScale": 0.62
   },
+  "walkpoly": [
+    [6, 197],
+    [6, 172],
+    [60, 158],
+    [118, 150],
+    [165, 134],
+    [200, 116],
+    [232, 107],
+    [264, 111],
+    [290, 122],
+    [298, 152],
+    [314, 174],
+    [314, 197]
+  ],
   "plate_additions": "Repaint the same sunny Levantine neighbourhood street, SAME camera & composition, but FLATTEN/REMOVE the big foreground occluders so they can live as separate props: drop the wooden striped-awning kiosk on the left sidewalk, the lone palm tree on the road island, and the parked red scooter — leave clean open asphalt and sidewalk where they stood (paint road cracks, kerb shadow, manhole, faint tyre marks underneath so the floor reads complete). Keep the warm tan apartment blocks, AC units, balconies, rooftop laundry, the strong top-left sun and the road receding to a right-side vanishing point. Add richer surreal LucasArts background gags baked into the far plate: a crooked municipal sign with abstract glyph-scribbles and a misdirected arrow, a too-many-cables tangle between balconies, an over-stuffed pigeon perched fatly on a wire, a stray cat silhouette in a doorway, a sun-faded election poster, a dripping AC unit with a tiny puddle, laundry that includes one absurd item (a single giant sock). Keep EGA-flat fills with 1px black outlines, top-left light, integer pixels.",
   "props": [
     {

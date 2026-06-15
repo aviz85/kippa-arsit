@@ -1,6 +1,20 @@
 {
   "id": "wolf_garden",
-  "depth": { "horizon": 158, "nearScale": 1.12, "farScale": 0.78 },
+  "depth": { "horizon": 120, "nearScale": 1.2, "farScale": 0.62 },
+  "walkpoly": [
+    [4, 196],
+    [314, 196],
+    [306, 163],
+    [258, 153],
+    [222, 144],
+    [212, 128],
+    [208, 121],
+    [172, 121],
+    [168, 132],
+    [170, 147],
+    [58, 152],
+    [12, 163]
+  ],
   "plate_additions": "Keep the exact garden composition (sky, distant tree-line clearing, picket fence, tilled soil with carrot rows + tomato bushes, front grass walking strip, sun and clouds) but FLATTEN/REMOVE the big left foreground tree, the scarecrow, the wolf's hut and the watering can — they become separate props, so paint the soil/grass/sky cleanly where they were. Add richer surreal LucasArts background detail and gags: a hand-painted 'כניסה לצמחונים בלבד' sign nailed to the fence, a wonky garden-gnome with a tiny knife confiscated and zip-tied, a butterfly with a wolf's face, a single suspiciously oversized carrot pushing up the soil like a periscope, distant trees whose canopies are subtly shaped like sheep, a tiny 'BEWARE OF THE FRIENDLY WOLF' notice, faint chalk hopscotch on the grass strip. Keep the lower third (y>=158) open and walkable.",
   "props": [
     {

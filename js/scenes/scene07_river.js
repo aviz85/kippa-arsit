@@ -7,8 +7,8 @@
     name:'הנהר והגשר',
     entry:{ x:38, y:185, dir:'right' },
     walkbox:[ {x:10,y:160,w:300,h:34} ],   // fallback
-    // walk ONLY on the near sand bank + the bridge planks + the far bank (never in the water)
-    walkpoly:[ [10,198],[10,160],[60,155],[96,157],[150,142],[205,139],[216,151],[162,158],[112,165],[92,168],[126,183],[315,185],[315,198] ],
+    // COARSE, WIDE, CONVEX walk area: the near bank + the dock base. Convex => smooth movement (no snap/jumps).
+    walkpoly:[ [6,198],[6,168],[120,154],[210,154],[315,168],[315,198] ],
     scale:{ near:1.0, far:0.82, horizon:150 },
 
     drawBackground(ctx){

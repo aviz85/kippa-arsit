@@ -1,6 +1,21 @@
 {
   "id": "granny_ext",
-  "depth": { "horizon": 150, "nearScale": 1.15, "farScale": 0.7 },
+  "depth": { "horizon": 152, "nearScale": 1.35, "farScale": 0.58 },
+  "walkpoly": [
+    [24, 196],
+    [302, 196],
+    [292, 174],
+    [266, 164],
+    [238, 163],
+    [214, 160],
+    [192, 159],
+    [174, 162],
+    [150, 167],
+    [110, 171],
+    [66, 175],
+    [42, 182],
+    [30, 190]
+  ],
   "plate_additions": "Keep the exact composition: crooked creepy-cute thatched cottage centered, dark door, dark window left of door, leaning chimney with thin smoke, stone path to the door, mossy sickly-green forest-edge ground, overcast sky, dense dark tree line behind. REMOVE/flatten the big foreground tree trunk on the far LEFT edge and the heavy overhanging foliage canopy along the TOP — those become separate foreground props; leave clean sky/treeline behind them and keep the lower-left floor open where the trunk's base sat. Push the side framing trees back into the midground tree wall so the play area reads clearly. Add richer surreal LucasArts background detail: gnarled twisted bark faces in the distant trees, a few crooked picket-fence stubs, scattered toadstools with too-symmetrical spots, faint glowing eyes peeking from the treeline gaps, a cuckoo-clock bird frozen mid-pop out of a knot-hole, drifting wisp of fog low across the moss. Keep the painted CGA-ish dithered palette and overcast light from upper-left.",
   "props": [
     {
