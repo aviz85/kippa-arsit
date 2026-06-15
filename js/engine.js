@@ -1,5 +1,5 @@
 /* ============================================================================
-   כיפה ארסית — Sierra-style adventure engine (vanilla JS, no build)
+   כיפה ערסית — Sierra-style adventure engine (vanilla JS, no build)
    One cohesive engine implementing CONTRACT.md. Global: GAME
    ========================================================================== */
 (function () {

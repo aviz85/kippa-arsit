@@ -14,7 +14,7 @@ const RET = { type:'object', additionalProperties:true, required:['id','ok'],
 
 phase('Calibrate');
 const res = await parallel(ids.map(id => () => agent(
-`Calibrate the foreground-prop PROPORTIONS for scene '${id}' of the LucasArts adventure "כיפה ארסית". Work in project root.
+`Calibrate the foreground-prop PROPORTIONS for scene '${id}' of the LucasArts adventure "כיפה ערסית". Work in project root.
 
 THE PROBLEM you are fixing: the props were sized by rough guesses and look "pasted" / wrong-scale. You will tune each prop's
 size so it is believable relative to the CHARACTER.

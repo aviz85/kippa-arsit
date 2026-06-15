@@ -1,4 +1,4 @@
-# כיפה ארסית — Engine Contract (READ FIRST, conform exactly)
+# כיפה ערסית — Engine Contract (READ FIRST, conform exactly)
 
 A Sierra-style (late-80s SCI) point-and-click adventure. Vanilla JS + HTML5 Canvas, **no build step**.
 Logical scene resolution is **320×200**, integer-upscaled. UI chrome is HTML around the canvas.

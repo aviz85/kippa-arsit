@@ -1,4 +1,4 @@
-# כיפה ארסית — PUZZLE FLOW (QA reference & winnable-path checklist)
+# כיפה ערסית — PUZZLE FLOW (QA reference & winnable-path checklist)
 
 Derived from `docs/GAME_SPEC.md` + `js/story.js` (flag source of truth) + `CONTRACT.md`.
 This is the testable solution path. Each step lists: **scene → action → result (flag/item) → gate it opens**.

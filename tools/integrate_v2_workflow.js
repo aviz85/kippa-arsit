@@ -4,7 +4,7 @@ export const meta = {
   phases: [ { title: 'Integrate', detail: 'one agent per scene with NPC/item draws' } ],
 };
 
-const RULE = `CONTEXT: The game "כיפה ארסית" now uses painted PNG backgrounds. The engine render rules changed:
+const RULE = `CONTEXT: The game "כיפה ערסית" now uses painted PNG backgrounds. The engine render rules changed:
   - When a painted background exists for a scene, the engine SKIPS the scene's drawBackground() entirely.
   - It also SKIPS each hotspot's draw() UNLESS that hotspot has the property  keepDraw:true.
   - NPCs and world-items are drawn via GAME.drawSprite(...) / GAME.itemDef('x').draw(...). These MUST still appear.

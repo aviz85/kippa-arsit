@@ -16,7 +16,7 @@ const RET = { type:'object', additionalProperties:true, required:['id','ok'],
 
 phase('PlatesProps');
 const res = await parallel(ids.map(id => () => agent(
-`Generate the LAYERED art for scene '${id}' of "כיפה ארסית" (LucasArts v3). Work in project root.
+`Generate the LAYERED art for scene '${id}' of "כיפה ערסית" (LucasArts v3). Work in project root.
 Read the layer spec docs/layers/${id}.json (it has: plate_additions, and props[] each with {name, prompt, ...}).
 
 === STEP 1: BACKGROUND PLATE (foreground removed) ===

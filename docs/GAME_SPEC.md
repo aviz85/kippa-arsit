@@ -1,11 +1,11 @@
-# כיפה ארסית — GAME SPEC (the winnable puzzle graph & per-scene briefs)
+# כיפה ערסית — GAME SPEC (the winnable puzzle graph & per-scene briefs)
 
 This is the SINGLE SOURCE OF TRUTH for content. Every scene/sprite/item agent MUST conform
 to the flags, items, exits and IDs here so the game is fully connected and winnable.
 Conform to `CONTRACT.md` for the engine API. Tone: Israeli street comedy, warm not crude.
 
 ## Cast (voices via GAME.RED/MOM/WOLF/GRANNY, speak colors in story.js)
-- **כיפה (Red)** — the player. ארסית של השכונה: chill, slangy ("סבבה","וואלה","אחותי","על הפנים","פצצה","יאללה ביי"), confident, secretly sharp. Never crude/mean.
+- **כיפה (Red)** — the player. ערסית של השכונה: chill, slangy ("סבבה","וואלה","אחותי","על הפנים","פצצה","יאללה ביי"), confident, secretly sharp. Never crude/mean.
 - **אמא (Mom)** — worried Israeli mom, guilt-trips lovingly.
 - **הזאב (Wolf)** — vegetarian, anxious, gentle, misunderstood. Loves vegetables & sunflower seeds (גרעינים). Sad that everyone fears him. Speaks soft, apologetic, a bit hipster ("אני בקטע של אוכל מהצומח").
 - **סבתא (Granny)** — sweet façade hiding a psychopath. Collects knives & taxidermy. Wants to hunt/skin the wolf. The TWIST villain. Sugary words, chilling subtext.

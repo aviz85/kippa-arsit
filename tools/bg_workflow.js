@@ -28,7 +28,7 @@ const RET = { type:'object', additionalProperties:true, required:['id','ok'],
 
 phase('Backgrounds');
 const results = await parallel(SCENES.map(([id, name, scene]) => () => agent(
-`You generate ONE painted background for the adventure game "כיפה ארסית", scene id='${id}' (${name}).
+`You generate ONE painted background for the adventure game "כיפה ערסית", scene id='${id}' (${name}).
 Work in the project root. Reference images already exist:
   - style key:       assets/style/style_key.png   (the locked art style — match it exactly)
   - layout guide:    assets/layout/${id}.png       (composition/object placement to follow)
@@ -52,7 +52,7 @@ Return {id, ok (true if a valid 1280x800 bg exists), w, h, attempts, styleMatch 
 phase('Consistency');
 const okIds = results.filter(Boolean).filter(r=>r.ok).map(r=>r.id).concat(['forest_edge']);
 const judge = await agent(
-`You are the art director for "כיפה ארסית". Use the Read tool to view ALL of these painted backgrounds and assess overall STYLE CONSISTENCY (they must look like one cohesive 90s LucasArts adventure game):
+`You are the art director for "כיפה ערסית". Use the Read tool to view ALL of these painted backgrounds and assess overall STYLE CONSISTENCY (they must look like one cohesive 90s LucasArts adventure game):
 ${okIds.map(id=>'  assets/bg/'+id+'.png').join('\n')}
 The locked style reference is assets/style/style_key.png (= forest_edge).
 For each background give a one-line verdict (consistent / mild-outlier / strong-outlier) and note any that clash in palette, line weight, lighting, or perspective, or contain stray text/people. List the worst 0-3 that should be regenerated and why. Be specific and honest.

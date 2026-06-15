@@ -1,4 +1,4 @@
-# כיפה ארסית — DIALOGUE & VOICE GUIDE
+# כיפה ערסית — DIALOGUE & VOICE GUIDE
 
 Ready-to-use Hebrew lines per character. **Scene agents: copy these lines verbatim** (or lightly adapt)
 into `GAME.RED/MOM/WOLF/GRANNY/WOOD/NEIGHBOR(...)` calls and `GAME.say/speak/choice`.
@@ -24,7 +24,7 @@ into `GAME.RED/MOM/WOLF/GRANNY/WOOD/NEIGHBOR(...)` calls and `GAME.say/speak/cho
 
 ---
 
-## כיפה (Red) — ארסית של השכונה, הגיבורה־שחקנית
+## כיפה (Red) — ערסית של השכונה, הגיבורה־שחקנית
 
 1. `וואלה, נראה לי שאני המנהיגה של הסיפור הזה. סבבה.`
 2. `אחותי, אני לא אדומה — אני אֲדִירָה.`
@@ -37,7 +37,7 @@ into `GAME.RED/MOM/WOLF/GRANNY/WOOD/NEIGHBOR(...)` calls and `GAME.say/speak/cho
 9. `תקשיבי לי טוב, סבתא — אני רואה בדיוק מה את.` *(לעימות)*
 10. `אני לא לבד. יש לי חבר, ויש לי הוכחות. עכשיו את בבעיה.` *(שיא הניצחון)*
 11. `מצב על הפנים — אבל אני יותר חזקה ממנו.` *(רגע ספק)*
-12. `לא קופצת מהחלון. אני ארסית, לא טמבלית.` *(נגד מוות מטופש)*
+12. `לא קופצת מהחלון. אני ערסית, לא טמבלית.` *(נגד מוות מטופש)*
 
 ---
 

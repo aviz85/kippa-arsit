@@ -1,4 +1,4 @@
-# כיפה ארסית — INTRO & ENDING (Design Doc)
+# כיפה ערסית — INTRO & ENDING (Design Doc)
 
 Design reference for the **scene00 intro cutscene** and the **scene10 finale**.
 All Hebrew text MUST go through `GAME.say` / `GAME.speak` (`GAME.RED/MOM/WOLF/GRANNY`) — never raw canvas text.

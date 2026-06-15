@@ -221,7 +221,7 @@
       // WIN PATH — evidence + befriended wolf. Works for BOTH choices (incl. the
       // reckless in-her-face accusation): an armed accusation is still a win.
       if(recklessAccuse) GAME.RED('בלי משחקים, סבתא. אני יודעת בדיוק מה את — ויש לי את זה כתוב.');
-      else               GAME.RED('פתק ביד, חבר בדלת. את גמרת, סבתא. הזאב הצמחוני בא להציל ארסית. מי היה מאמין.');
+      else               GAME.RED('פתק ביד, חבר בדלת. את גמרת, סבתא. הזאב הצמחוני בא להציל ערסית. מי היה מאמין.');
       GAME.onMsgDone(()=>{
         GAME.say('כיפה מנפנפת בפתק: "1. הזאב 2. ?" — ההוכחה ישר על הפנים של הזקנה.');
         GAME.onMsgDone(()=>{
@@ -266,7 +266,7 @@
   // ---- death gag: jumping out the bedroom window ----------------------------
   function jumpWindow(){
     if(S().resolved) return;
-    GAME.RED('לא קופצת מהחלון. אני ארסית, לא טמבלית.');
+    GAME.RED('לא קופצת מהחלון. אני ערסית, לא טמבלית.');
     GAME.onMsgDone(()=>{
       GAME.choice('בכל זאת לקפוץ?', [
         { label:'לא, השתגעתי? נישאר', action:()=> GAME.RED('בדיוק. רגע טוב לשמור משחק, אם היה לי כפתור כזה בחיים.') },

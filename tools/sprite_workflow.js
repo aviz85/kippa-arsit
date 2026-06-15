@@ -17,7 +17,7 @@ function spriteAgent(id, dir, aspect, refs, charDesc, extra) {
   const out = `assets/spr/${id}_${dir}.png`;
   const raw = `assets/raw/spr_${id}_${dir}.png`;
   return () => agent(
-`Generate ONE character sprite for "כיפה ארסית": id='${id}', view='${dir}'. Work in project root.
+`Generate ONE character sprite for "כיפה ערסית": id='${id}', view='${dir}'. Work in project root.
 Reference image(s): ${refs}
 
 STEP 1 — generate:

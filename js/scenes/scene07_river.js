@@ -145,7 +145,7 @@
         onTalk(){ GAME.RED('דיברתי לנהר. הנהר זרם הלאה. סיפור היחסים שלי בקיצור.'); },
         onUse(item){
           if(GAME.flag(F.bridgeFixed)){
-            GAME.RED('יש גשר עכשיו, למה שאשחה? אני ארסית, לא טמבלית.'); return;
+            GAME.RED('יש גשר עכשיו, למה שאשחה? אני ערסית, לא טמבלית.'); return;
           }
           GAME.RED('זרם? סבבה, אני שחיינית.');
           GAME.onMsgDone(()=>{

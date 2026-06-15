@@ -12,8 +12,8 @@ export const meta = {
 
 /* ---------- shared context every agent gets ---------- */
 const PRE = `You are building a Sierra-style (late-80s SCI) point-and-click adventure GAME called
-"כיפה ארסית" (Kippa Arsit): a Hebrew comedy retelling of Little Red Riding Hood where Red is an
-Israeli street kid ("ארסית"), the Wolf is a gentle VEGETARIAN, and the Grandmother is a hidden PSYCHOPATH.
+"כיפה ערסית" (Kippa Arsit): a Hebrew comedy retelling of Little Red Riding Hood where Red is an
+Israeli street kid ("ערסית"), the Wolf is a gentle VEGETARIAN, and the Grandmother is a hidden PSYCHOPATH.
 Vanilla JS + HTML5 Canvas, NO build step. Working dir is the project root.
 
 MANDATORY READING before you write anything (use the Read tool):
@@ -61,7 +61,7 @@ const designTasks = [
   ['docs/DIALOGUE.md', 'DIALOGUE & VOICE',
     `Write a dialogue/voice guide with 8-15 ready-to-use Hebrew lines PER character (כיפה, אמא, הזאב, סבתא, חוטב עצים, שכן).
      Include the inverted-classic granny exchange ("איזה עיניים גדולות יש לך סבתא" → menacing sweet replies, ending on
-     "איזה סכין גדולה יש לך"). Capture each voice (Red=ארסית slang; Wolf=soft vegan hipster; Granny=sugary-sinister).
+     "איזה סכין גדולה יש לך"). Capture each voice (Red=ערסית slang; Wolf=soft vegan hipster; Granny=sugary-sinister).
      Scene agents will copy lines from here.`],
   ['docs/ART_BIBLE.md', 'ART BIBLE',
     `Write per-scene composition notes for scenes 2-10 (and intro): horizon/floor line, key shapes, palette picks from GAME.C,
@@ -140,7 +140,7 @@ const scenes = [
 const sprites = [
   ['js/sprites.js','red',
     `IMPROVE the player 'red' sprite (keep registering 'red' AND 'placeholder'; do not remove the rel() helper or break the file).
-     Make a crisp ארסית: red beanie/cap, sunglasses, gold chain, red zip jacket, track pants w/ white stripes, sneakers, attitude.
+     Make a crisp ערסית: red beanie/cap, sunglasses, gold chain, red zip jacket, track pants w/ white stripes, sneakers, attitude.
      Support dir left/right/up/down and a 2-step walk cycle via frame (0..3). x,y = feet bottom-center. Add a soft shadow ellipse.
      This file is yours alone.`],
   ['js/npc/wolf.js','wolf',

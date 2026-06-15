@@ -1,4 +1,4 @@
-# כיפה ארסית — ART BIBLE (per-scene composition guide for the 10 rooms)
+# כיפה ערסית — ART BIBLE (per-scene composition guide for the 10 rooms)
 
 This is the **visual contract** for every scene file. It keeps all 10 rooms (+ intro) feeling like one
 cohesive late-80s SCI game (King's Quest IV / Police Quest vibe). Read it together with `CONTRACT.md`

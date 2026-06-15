@@ -1,4 +1,4 @@
-# כיפה ארסית — RTL & Slang Glossary
+# כיפה ערסית — RTL & Slang Glossary
 
 The shared reference for **all** dialogue in the game. Read this before writing any Hebrew string.
 Goal: every line sounds like the same world — warm Israeli street comedy, never crude, never mean —
@@ -54,7 +54,7 @@ Use `GAME.say(text)` for neutral narration (the white bar).
 
 | Speaker | Helper | Register | Signature moves |
 |---|---|---|---|
-| כיפה (Red) | `GAME.RED` | chill street-smart ארסית, secretly sharp | full slang kit below; deadpan confidence |
+| כיפה (Red) | `GAME.RED` | chill street-smart ערסית, secretly sharp | full slang kit below; deadpan confidence |
 | אמא (Mom) | `GAME.MOM` | loving guilt-trip | "אכלת משהו?", "תתקשרי כשתגיעי", soft worry |
 | הזאב (Wolf) | `GAME.WOLF` | gentle, anxious, hipster-vegan | "אני בקטע של אוכל מהצומח", apologetic, sad |
 | סבתא (Granny) | `GAME.GRANNY` | sugary façade, chilling subtext | sweet words + menace underneath ("מתוקה שלי...") |

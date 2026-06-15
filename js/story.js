@@ -4,7 +4,7 @@
   GAME.STORY = {
     // colors for each speaker (used with GAME.speak)
     voice: {
-      red:    GAME.C.pink,    // כיפה הארסית
+      red:    GAME.C.pink,    // כיפה הערסית
       mom:    GAME.C.orange,  // אמא
       wolf:   GAME.C.green,   // הזאב הצמחוני
       granny: GAME.C.red,     // הסבתא הפסיכופטית

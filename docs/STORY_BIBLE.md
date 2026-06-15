@@ -1,4 +1,4 @@
-# כיפה ארסית — Story Bible
+# כיפה ערסית — Story Bible
 
 A Hebrew comedy retelling of Little Red Riding Hood, set in a 1989 Israeli
 neighborhood beside a forest. EGA-flat, Sierra-style point-and-click.
@@ -12,7 +12,7 @@ street comedy — slangy and funny, never crude or mean.
 
 הסיפור הקלאסי הפוך לחלוטין. שלוש היפוכים נושאים את כל הקומדיה:
 
-1. **כיפה היא ארסית** — לא ילדה תמימה אלא ערסית-שכונה צ'יל, בטוחה בעצמה,
+1. **כיפה היא ערסית** — לא ילדה תמימה אלא ערסית-שכונה צ'יל, בטוחה בעצמה,
    מפליאה בסלנג ("סבבה", "וואלה", "אחותי", "פצצה", "יאללה ביי"). מתחת לסטייל —
    חדה ומבינה עניין.
 2. **הזאב צמחוני** — לא טורף אלא היפסטר עדין, חרד, אוהב ירקות וגרעינים, עצוב

@@ -1,4 +1,4 @@
-# כיפה ארסית — COMEDY & EASTER EGGS
+# כיפה ערסית — COMEDY & EASTER EGGS
 
 The joke bible. A living bank of gags, look-at one-liners, graffiti puns, item descriptions,
 Israeli-street references and meta-Sierra winks — organized by scene so scene agents can drop them
@@ -52,7 +52,7 @@ not gore.
 17. **The kiosk — seeds haggle:** NEIGHBOR: `GAME.speak('קיוסקאי','גרעינים? יש שחורים, יש לבנים, יש מלוחים שלוקחים לך שנתיים מהחיים. קח, מתנה.')`
 18. **Kiosk meta gag:** `GAME.say('בקיוסק: במבה, ביסלי, ושלט "אין אשראי, אין רֵסטוֹר, אין רחמים." רוח של פוליס קווסט.')`
 19. **The scooter:** `GAME.RED('קטנוע. אין מפתח, אין קסדה, אין ביטוח. כלומר — מושלם. אבל לא היום.')`
-    Try to take it: `GAME.RED('לגנוב קטנוע בשכונה שלי? אני ארסית עם ערכים, אחי.')`
+    Try to take it: `GAME.RED('לגנוב קטנוע בשכונה שלי? אני ערסית עם ערכים, אחי.')`
 20. **The palm tree:** `GAME.say('דקל בודד באמצע אספלט. שורד יותר טוב מרוב מערכות היחסים פה.')`
 
 ## scene04 — forest_edge — כניסה ליער
@@ -108,7 +108,7 @@ not gore.
 
 52. **Granny drops the act:** `GAME.speak('סבתא','מה כיפה גדולה... כמה בשר. ישבתי כל-כך הרבה זמן בשביל הרגע הזה.')`
 53. **The classic flipped into the reveal — "what a big knife":** `GAME.RED('ואיזה סכין גדולה יש לך, סבתא!')` → GRANNY: `GAME.speak('סבתא','כדי לפרק אותך יפה-יפה, אהובה. אל תיקחי את זה אישית.')`
-54. **WIN beat — Red calls the wolf:** `GAME.RED('פתק ביד, חבר בדלת. את גמרת, סבתא. הזאב הצמחוני בא להציל ארסית. מי היה מאמין.')`
+54. **WIN beat — Red calls the wolf:** `GAME.RED('פתק ביד, חבר בדלת. את גמרת, סבתא. הזאב הצמחוני בא להציל ערסית. מי היה מאמין.')`
 55. **WIN — wolf bursts in:** WOLF: `GAME.speak('הזאב','סליחה שאני מאחר! חיפשתי חניה ליער. סבתא — זה נגמר.')`
 56. **WIN screen:** `GAME.win('כיפה והזאב הצמחוני הצילו את היום. הסבתא נלקחה לטיפול. גמרת ב-100/100! יאללה ביי, סבתא.')`
 57. **LOSE beat (no wolf / no evidence):** `GAME.die('בלי חבר ובלי הוכחות, מול סכין... סוף ארור. תשמרי בנקודה אחרת בפעם הבאה.')`
@@ -130,7 +130,7 @@ not gore.
 - **seeds / גרעינים:** `'חבילת גרעינים שחורים. מטבע השכונה, שפת האהבה של הזאב.'`
 - **plank / קרש:** `'קרש עץ ארוך. פתרון של פאזל הרפתקה קלאסי שמחכה לחור מתאים.'`
 - **key / מפתח:** `'מפתח חלוד מתחת לגמד. נפתח דלתות וגם כמה שאלות לא נעימות.'`
-- **evidence / הוכחה:** `'פתק של סבתא: "1. הזאב 2. ?" ההוכחה שהופכת ארסית לבלשית.'`
+- **evidence / הוכחה:** `'פתק של סבתא: "1. הזאב 2. ?" ההוכחה שהופכת ערסית לבלשית.'`
 
 ## Death-screen one-liners (Sierra charm, never gory)
 

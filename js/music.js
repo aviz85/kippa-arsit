@@ -1,4 +1,4 @@
-/* js/music.js — looping chiptune background themes for "כיפה ארסית".
+/* js/music.js — looping chiptune background themes for "כיפה ערסית".
    API:  GAME.music('hood' | 'forest' | 'granny')  ·  GAME.music('stop')
    WebAudio oscillators, subtle volume (~0.03), self-scheduling loop.
    Safe no-op if AudioContext is unavailable (never throws). Self-contained IIFE. */

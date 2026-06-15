@@ -46,7 +46,7 @@ const SCENES = [
 
 phase('LayerSpecs');
 const specs = await parallel(SCENES.map(([id,file]) => () => agent(
-`You are designing the LucasArts z-depth LAYER plan for scene '${id}' of "כיפה ארסית".
+`You are designing the LucasArts z-depth LAYER plan for scene '${id}' of "כיפה ערסית".
 Read the design doc docs/V3_DESIGN.md (the engine contract). Read the scene file ${file} for hotspots/exits/walkbox/puzzle.
 VIEW assets/bg/${id}.png (the current painted background) and assets/layout/${id}.png with the Read tool to ground your coordinates.
 ${SCHEMA_NOTE}
@@ -56,7 +56,7 @@ Write docs/layers/${id}.json. Return {id:'${id}', ok:true, props:<count>, notes}
 
 phase('Direction');
 const dir = await agent(
-`You are the art director for "כיפה ארסית" v3 (LucasArts SCUMM). Read all of docs/layers/*.json.
+`You are the art director for "כיפה ערסית" v3 (LucasArts SCUMM). Read all of docs/layers/*.json.
 Check the layer plans are consistent and implementable: every scene has a depth ramp, sensible foreground occluders with
 believable baselines, and ambient animation. Flag any scene whose plan is weak, contradictory, or missing foreground depth,
 and give a one-line fix. Also propose a consistent global depth feel (nearScale/farScale range) and a short list of the

@@ -11,8 +11,8 @@
                  Math.max(1,Math.round(w*s)), Math.max(1,Math.round(h*s)));
   }
 
-  /* ---------------- RED — כיפה הארסית (player) ----------------------------
-     A crisp Israeli street-kid "ארסית": red cap, sunglasses, gold chain,
+  /* ---------------- RED — כיפה הערסית (player) ----------------------------
+     A crisp Israeli street-kid "ערסית": red cap, sunglasses, gold chain,
      red zip jacket, black track pants w/ white stripes, white sneakers, attitude.
      dir: left|right|up|down. frame 0..3 = 2-step walk cycle. */
   GAME.registerSprite('red', { w:18, h:36, draw(ctx,x,y,frame,dir,s){

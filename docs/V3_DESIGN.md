@@ -1,4 +1,4 @@
-# כיפה ארסית — V3: True LucasArts SCUMM Overhaul (deep design)
+# כיפה ערסית — V3: True LucasArts SCUMM Overhaul (deep design)
 
 Goal: turn the single-plane painted game (v2) into an authentic early-'90s **LucasArts SCUMM** adventure —
 multi-layer scenes with real **z-depth** (the character walks *behind* foreground props and *in front* of others),

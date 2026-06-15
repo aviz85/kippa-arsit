@@ -19,7 +19,7 @@ function iconAgent(kind, id, desc, size, aspect) {
   const out = kind==='item' ? `assets/item/${id}.png` : `assets/ui/verb_${id}.png`;
   const base = kind==='item' ? ITEM : VERB;
   return () => agent(
-`Generate ONE ${kind} icon for "כיפה ארסית": '${id}'. Work in project root. Style reference: ${STYLE_REF}.
+`Generate ONE ${kind} icon for "כיפה ערסית": '${id}'. Work in project root. Style reference: ${STYLE_REF}.
 
 STEP 1: node tools/genimg.mjs --out ${raw} --aspect ${aspect} --size 1K --ref ${STYLE_REF} --prompt "${base} SUBJECT: ${desc}"
 STEP 2: node tools/imgproc.mjs icon --in ${raw} --out ${out} --size ${size}

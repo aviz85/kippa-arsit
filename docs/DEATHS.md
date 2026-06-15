@@ -1,4 +1,4 @@
-# כיפה ארסית — Death Screens (Sierra one-liners)
+# כיפה ערסית — Death Screens (Sierra one-liners)
 
 Sierra-style death messages, Hebrew, dark-comic but light — warm Israeli street comedy, never gory.
 Each line is passed verbatim to `GAME.die('...')`. The engine handles the "מת/ה!" banner + Restore/Restart.
